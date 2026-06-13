@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { personalInfo, highlights, experiences, projects, publications } from './data/portfolioData';
 import p5Logo from './assets/logo.png';
+import profilePic from './assets/profile_picture.jpg';
 
 export default function MinimalPortfolio({ onActivateP5 }) {
   const [theme, setTheme] = useState('dark');
@@ -28,23 +29,30 @@ export default function MinimalPortfolio({ onActivateP5 }) {
       </div>
 
       <header className="minimal-header">
-        <h1>{personalInfo.name}</h1>
-        <h2>{personalInfo.title}</h2>
-        <p className="minimal-bio">{personalInfo.about}</p>
-        <div className="minimal-socials">
-          {Object.entries(personalInfo.socials).map(([key, link]) => (
-            <a key={key} href={link} target="_blank" rel="noopener noreferrer">
-              {key}
-            </a>
-          ))}
+        <div className="header-content-wrapper">
+          <div className="header-image">
+            <img src={profilePic} alt="Profile" />
+          </div>
+          <div className="header-text">
+            <h1>{personalInfo.name}</h1>
+            <h2>{personalInfo.title}</h2>
+            <p className="minimal-bio">{personalInfo.about}</p>
+            <div className="minimal-socials">
+              {Object.entries(personalInfo.socials).map(([key, link]) => (
+                <a key={key} href={link} target="_blank" rel="noopener noreferrer">
+                  {key}
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
       </header>
 
       <section className="minimal-section">
         <h3>RECENT HIGHLIGHTS</h3>
         <div className="minimal-scroll-container">
-          {highlights.map(hl => (
-            <div key={hl.id} className="minimal-card minimal-scroll-card">
+          {highlights.map((hl, idx) => (
+            <div key={idx} className="minimal-card minimal-scroll-card">
               {hl.image && <img src={hl.image} alt="Highlight" className="minimal-card-image" />}
               <div className="minimal-card-header">
                 <span>{hl.date}</span>
@@ -75,8 +83,8 @@ export default function MinimalPortfolio({ onActivateP5 }) {
       <section className="minimal-section">
         <h3>EXPERIENCE</h3>
         <div className="minimal-list">
-          {experiences.map(exp => (
-            <div key={exp.id} className="minimal-card">
+          {experiences.map((exp, idx) => (
+            <div key={idx} className="minimal-card">
               <div className="minimal-card-header">
                 <h4>{exp.role} @ {exp.company}</h4>
                 <span>{exp.date}</span>
@@ -90,8 +98,8 @@ export default function MinimalPortfolio({ onActivateP5 }) {
       <section className="minimal-section">
         <h3>PROJECTS</h3>
         <div className="minimal-grid">
-          {projects.map(proj => (
-            <div key={proj.id} className="minimal-card">
+          {projects.map((proj, idx) => (
+            <div key={idx} className="minimal-card">
               {proj.image && <img src={proj.image} alt={proj.title} className="minimal-card-image" />}
               <h4>{proj.title}</h4>
               <p>{proj.description}</p>
@@ -104,8 +112,8 @@ export default function MinimalPortfolio({ onActivateP5 }) {
       <section className="minimal-section">
         <h3>PUBLICATIONS</h3>
         <div className="minimal-grid">
-          {publications.map(pub => (
-            <div key={pub.id} className="minimal-card">
+          {publications.map((pub, idx) => (
+            <div key={idx} className="minimal-card">
               {pub.image && <img src={pub.image} alt={pub.title} className="minimal-card-image" />}
               <h4>{pub.title}</h4>
               <p>{pub.description}</p>
@@ -233,7 +241,41 @@ export default function MinimalPortfolio({ onActivateP5 }) {
         .minimal-header {
           margin-top: 4rem;
           margin-bottom: 5rem;
-          max-width: 800px;
+          max-width: 1000px;
+        }
+
+        .header-content-wrapper {
+          display: flex;
+          align-items: center;
+          gap: 4rem;
+        }
+
+        .header-text {
+          flex: 1;
+        }
+
+        .header-image {
+          flex: 0 0 250px;
+        }
+
+        .header-image img {
+          width: 100%;
+          aspect-ratio: 3 / 4;
+          object-fit: cover;
+          border-radius: 50%;
+          border: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+          .header-content-wrapper {
+            flex-direction: column;
+            text-align: left;
+            align-items: flex-start;
+          }
+          .header-image {
+            flex: 0 0 150px;
+            width: 150px;
+          }
         }
         
         .minimal-header h1 {
@@ -352,10 +394,9 @@ export default function MinimalPortfolio({ onActivateP5 }) {
         .minimal-card-image {
           width: 100%;
           height: 200px;
-          object-fit: cover;
+          object-fit: contain;
           margin-bottom: 1.5rem;
           border-radius: 4px;
-          border: 1px solid var(--border-color);
         }
         
         .minimal-card-header {

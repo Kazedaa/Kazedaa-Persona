@@ -101,6 +101,7 @@ body {
   border: 1px solid rgba(255,255,255,0.4);
   background: rgba(13,13,13,0.8);
   clip-path: polygon(0 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+  color: white;
   
   max-width: 0;
   padding: 0;

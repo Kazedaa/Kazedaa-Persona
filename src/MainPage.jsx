@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { personalInfo, highlights, experiences } from "./data/portfolioData";
+import profilePic from './assets/profile_picture.jpg';
 import P5Button from "./P5Button";
 
 export default function MainPage() {
@@ -17,6 +18,45 @@ export default function MainPage() {
           display: flex;
           flex-direction: column;
           gap: 40px;
+        }
+
+        .p5-hero-section {
+          display: flex;
+          align-items: flex-start;
+          gap: 40px;
+          max-width: 1200px;
+        }
+
+        .p5-profile-img-container {
+          flex: 0 0 280px;
+          position: relative;
+        }
+
+        .p5-profile-img {
+          width: 280px;
+          height: 380px;
+          object-fit: cover;
+          border-radius: 50%;
+          border: 6px solid white;
+          box-shadow: 8px 8px 0px #d92323, 0 0 0 12px #0d0d0d;
+          background: #d92323;
+        }
+
+        .p5-hero-content {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        @media (max-width: 900px) {
+          .p5-hero-section {
+            flex-direction: column;
+          }
+          .p5-profile-img {
+            width: 200px;
+            height: 270px;
+          }
         }
 
         .p5-header-skew {
@@ -117,7 +157,7 @@ export default function MainPage() {
         .p5-highlight-card img {
           width: 120px;
           height: 120px;
-          object-fit: cover;
+          object-fit: contain;
         }
 
         .p5-highlight-info {
@@ -254,7 +294,7 @@ export default function MainPage() {
           width: 100%;
           height: auto;
           max-height: 300px;
-          object-fit: cover;
+          object-fit: contain;
           border: 2px solid #732424;
           margin-bottom: 20px;
         }
@@ -277,16 +317,23 @@ export default function MainPage() {
         }
       `}</style>
 
-      <div className="p5-header-skew">
-        <div>
-          <h1 className="p5-title">{personalInfo.name}</h1>
-          <h2 className="p5-subtitle">{personalInfo.education}</h2>
+      <div className="p5-hero-section">
+        <div className="p5-profile-img-container">
+          <img src={profilePic} alt="Profile" className="p5-profile-img" />
         </div>
-      </div>
+        <div className="p5-hero-content">
+          <div className="p5-header-skew">
+            <div>
+              <h1 className="p5-title">{personalInfo.name}</h1>
+              <h2 className="p5-subtitle">{personalInfo.education}</h2>
+            </div>
+          </div>
 
-      <div className="p5-content-box">
-        <h3>ABOUT ME</h3>
-        <p>{personalInfo.about}</p>
+          <div className="p5-content-box" style={{ marginTop: '30px' }}>
+            <h3>ABOUT ME</h3>
+            <p>{personalInfo.about}</p>
+          </div>
+        </div>
       </div>
 
       {personalInfo.educationList && personalInfo.educationList.length > 0 && (
@@ -307,8 +354,8 @@ export default function MainPage() {
       <div className="p5-content-box" style={{ maxWidth: '1100px' }}>
         <h3>HIGHLIGHTS</h3>
         <div className="p5-highlights-grid">
-          {highlights.map(hl => (
-            <div key={hl.id} className="p5-highlight-card" onClick={() => setSelectedHighlight(hl)}>
+          {highlights.map((hl, idx) => (
+            <div key={idx} className="p5-highlight-card" onClick={() => setSelectedHighlight(hl)}>
               <img src={hl.image} alt="highlight" />
               <div className="p5-highlight-info">
                 <span className="p5-date">{hl.date}</span>
@@ -321,8 +368,8 @@ export default function MainPage() {
 
       <div className="p5-content-box">
         <h3>EXPERIENCE</h3>
-        {experiences.map(exp => (
-          <div key={exp.id} className="p5-exp-summary" onClick={() => navigate('/experience')}>
+        {experiences.map((exp, idx) => (
+          <div key={idx} className="p5-exp-summary" onClick={() => navigate('/experience')}>
             <div className="p5-exp-company">{exp.company}</div>
             <div className="p5-exp-role">{exp.role} ({exp.dateRange})</div>
             <p className="p5-exp-desc">{exp.description}</p>

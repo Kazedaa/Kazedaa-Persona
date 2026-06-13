@@ -134,8 +134,8 @@ export default function ExperiencePage() {
       </div>
 
       <div className="p5-timeline">
-        {experiences.map(exp => (
-          <div key={exp.id} className="p5-experience-box">
+        {experiences.map((exp, idx) => (
+          <div key={idx} className="p5-experience-box">
             <div className="p5-exp-header">
               <div className="p5-company">{exp.company}</div>
               <div className="p5-date-range">{exp.dateRange}</div>

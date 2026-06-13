@@ -69,14 +69,8 @@ export default function ProjectsPage() {
         .p5-project-img {
           width: 100%;
           height: 200px;
-          object-fit: cover;
+          object-fit: contain;
           border-bottom: 3px solid #d92323;
-          filter: grayscale(80%) contrast(120%);
-          transition: filter 0.3s;
-        }
-
-        .p5-project-card:hover .p5-project-img {
-          filter: grayscale(0%) contrast(100%);
         }
 
         .p5-project-info {
@@ -169,7 +163,7 @@ export default function ProjectsPage() {
           width: 100%;
           height: auto;
           max-height: 350px;
-          object-fit: cover;
+          object-fit: contain;
           border: 2px solid #732424;
           margin-bottom: 20px;
         }
@@ -196,8 +190,8 @@ export default function ProjectsPage() {
       </div>
 
       <div className="p5-projects-grid">
-        {projects.map(proj => (
-          <div key={proj.id} className="p5-project-card" onClick={() => setSelectedProject(proj)}>
+        {projects.map((proj, idx) => (
+          <div key={idx} className="p5-project-card" onClick={() => setSelectedProject(proj)}>
             <img src={proj.image} alt={proj.title} className="p5-project-img" />
             <div className="p5-project-info">
               <div className="p5-project-title">{proj.title}</div>

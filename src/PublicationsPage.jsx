@@ -69,14 +69,8 @@ export default function PublicationsPage() {
         .p5-project-img {
           width: 100%;
           height: 200px;
-          object-fit: cover;
+          object-fit: contain;
           border-bottom: 3px solid #d92323;
-          filter: grayscale(80%) contrast(120%);
-          transition: filter 0.3s;
-        }
-
-        .p5-project-card:hover .p5-project-img {
-          filter: grayscale(0%) contrast(100%);
         }
 
         .p5-project-info {
@@ -177,7 +171,7 @@ export default function PublicationsPage() {
           width: 100%;
           height: auto;
           max-height: 350px;
-          object-fit: cover;
+          object-fit: contain;
           border: 2px solid #732424;
           margin-bottom: 20px;
         }
@@ -204,8 +198,8 @@ export default function PublicationsPage() {
       </div>
 
       <div className="p5-projects-grid">
-        {publications.map(pub => (
-          <div key={pub.id} className="p5-project-card" onClick={() => setSelectedPub(pub)}>
+        {publications.map((pub, idx) => (
+          <div key={idx} className="p5-project-card" onClick={() => setSelectedPub(pub)}>
             <img src={pub.image} alt={pub.title} className="p5-project-img" />
             <div className="p5-project-info">
               <div className="p5-project-title">{pub.title}</div>

@@ -27,35 +27,35 @@ export const personalInfo = {
 
 export const highlights = [
   {
-    id: 1,
+
     image: "src/assets/MANTA_poster.png",
     description: "Authored MANTA: Physics-Informed Underwater Object Tracking, accepted to WACV 2026.",
     date: "March 2026",
     link: "https://wacv.thecvf.com/virtual/2026/poster/373"
   },
   {
-    id: 2,
+
     image: "src/assets/ietf.png",
     description: "Presented a Congestion Control Evaluation Suite Design at the 124th IETF Meeting to the CCWG in Montreal, Canada.",
     date: "Nov 2025",
     link: "https://www.youtube.com/watch?v=elcRv2ruyDc"
   },
   {
-    id: 3,
+
     image: "src/assets/echo_news_85.png",
     description: "Developed eBAF, a kernel-level eBPF Ad Firewall that received a shout-out from eBPF Foundation Leader, Bill Mulligan in his newsletter Echo News.",
     date: "July 2025",
     link: "https://www.linkedin.com/pulse/echo-news-85-bill-mulligan-jcsgf/"
   },
   {
-    id: 4,
+
     image: "src/assets/undive_poster.jpg",
     description: "Co-Authored UnDIVE: Generalized Underwater Video Enhancement using Generative Priors, accepted to WACV 2025, and presented at Tucson, USA.",
     date: "July 2025",
     link: "https://openaccess.thecvf.com/content/WACV2025/html/Srinath_UnDIVE_Generalized_Underwater_Video_Enhancement_using_Generative_Priors_WACV_2025_paper.html"
   },
   {
-    id: 5,
+
     image: "src/assets/sswc.jpg",
     description: "Authored HARQ Soft Combining Using Bidirectional LSTMs, accepted and presented at SSWC 2024.",
     date: "July 2025",
@@ -65,7 +65,7 @@ export const highlights = [
 
 export const experiences = [
   {
-    id: 1,
+
     company: "National Institute of Technology Karnataka",
     role: "Undergraduate Research Assistant",
     dateRange: "Feb 2025 - May 2026",
@@ -74,7 +74,7 @@ export const experiences = [
     ]
   },
   {
-    id: 2,
+
     company: "Indian Institute of Science (IISc)",
     role: "Undergraduate Research Assistant",
     dateRange: "May 2025 - Sept 2025",
@@ -89,7 +89,7 @@ export const experiences = [
     ]
   },
   {
-    id: 3,
+
     company: "IEEE NITK",
     role: "Project Head",
     dateRange: "Apr 2025 - Apr 2026",
@@ -98,7 +98,7 @@ export const experiences = [
     ]
   },
   {
-    id: 4,
+
     company: "Different",
     role: "Software Development Intern",
     dateRange: "May 2025 - July 2025",
@@ -112,7 +112,7 @@ export const experiences = [
     ]
   },
   {
-    id: 5,
+
     company: "IEEE NITK",
     role: "Executive Member",
     dateRange: "Dec 2022 - Apr 2026",
@@ -121,7 +121,7 @@ export const experiences = [
     ]
   },
   {
-    id: 6,
+
     company: "Indian Institute of Science (IISc)",
     role: "Undergraduate Research Assistant",
     dateRange: "Apr 2024 - July 2024",
@@ -138,7 +138,7 @@ export const experiences = [
 
 export const projects = [
   {
-    id: 1,
+
     title: "eBAF: eBPF Based Ad Firewall",
     image: "src/assets/ebaf.png",
     description: "eBAF is a high-performance, kernel-level network adblocker utilizing eBPF/XDP. Engineered to be a robust packet filtering system that bypasses the standard Linux networking stack to inspect and drop ad-serving traffic in real-time with near-zero latency. It handles the shifting ad domains by integrating a dynamic DNS resolution mechanism to continuously update IP blacklists, and includes an interactive web dashboard for live traffic monitoring. This project allowed me to explore low-level systems architecture and network protocols, ultimately earning a shout-out from eBPF Foundation Leader, Bill Mulligan in his newsletter Echo News.",
@@ -146,7 +146,7 @@ export const projects = [
     link: "https://github.com/Kazedaa/eBAF"
   },
   {
-    id: 2,
+
     title: "Bad Apple but it's a Bootloader",
     image: "src/assets/badapple_uefi.png",
     description: "A standalone UEFI application written in C that effectively acts as a bare-metal micro-operating system just to play a video during the computer's boot sequence. Bypassing the OS entirely, it interfaces directly with the motherboard's firmware and uses the UEFI Graphics Output Protocol (GOP) to stream video straight to the screen's framebuffer. To get around standard FAT32 file size limits, I wrote a custom video codec to compress the video into a 1-bit Run-Length Encoded (RLE) format that the C engine decodes on the fly.",
@@ -154,7 +154,7 @@ export const projects = [
     link: "https://github.com/Kazedaa/Bad-Apple-but-its-a-bootloader"
   },
   {
-    id: 3,
+
     title: "MANTA: Physics-Informed Generalized Underwater Object Tracking",
     image: "src/assets/manta_showcase.gif",
     description: "MANTA is a state-of-the-art, physics-informed machine learning framework designed to solve severe aquatic visual distortions in underwater object tracking. Implements a novel dual-positive contrastive learning pipeline integrating Beer-Lambert optical priors, and a multi-stage tracking architecture that leverages geometric consistency to resolve complex occlusion and drift challenges. The framework achieves state-of-the-art performance across four major benchmarks (WebUOT-1M, UOT32, UTB180, UWCOT220), improving Success AUC by 6% while ensuring real-time efficiency, and culminated in a co-first author publication accepted at WACV 2026.",
@@ -162,7 +162,7 @@ export const projects = [
     link: "https://github.com/Kazedaa/MANTA"
   },
   {
-    id: 4,
+
     title: "Bad Apple on a Terminal",
     image: "src/assets/badapple_terminal.png",
     description: "A silly project, rendering the Bad Apple music video on an ASCII Terminal.",
@@ -170,7 +170,7 @@ export const projects = [
     link: "https://github.com/Kazedaa/badapple"
   },
   {
-    id: 5,
+
     title: "ClariGPT",
     image: "https://placehold.co/400x250/1a1a1a/ffffff?text=ClariGPT",
     description: "ClariGPT is a full-stack, AI-powered research assistant chatbot leveraging a ReACT agent framework, Flask, and the Groq API to streamline the querying and summarization of arXiv academic papers. It involves a modular, multi-tool backend integrating PyMuPDF for robust PDF extraction and Pydantic for structured AI outputs, successfully bridging the gap between raw LLM reasoning capabilities and a seamless, interactive conversational interface for end users.",
@@ -178,7 +178,7 @@ export const projects = [
     link: "https://github.com/Kazedaa/ClariGPT"
   },
   {
-    id: 6,
+
     title: "HueShift: Breathing Life into Every Frame",
     image: "src/assets/hueshift.gif",
     description: "HueShift is an end-to-end video colorization pipeline leveraging diffusion models, PyTorch, and OpenCV to automatically colorize grayscale video sequences. Implements the core machine learning infrastructure to perform frame-wise colorization, encompassing data preprocessing, model training and inference, and multi-resolution post-processing utilities. It tackles complex visual artifacts by implementing temporal consistency optimizations, keyframe detection, and deflickering techniques. This project culminated in a public demonstration at the NITK Executive Project Expo.",
@@ -186,7 +186,7 @@ export const projects = [
     link: "https://github.com/Kazedaa/Hueshift-Video-Coloring"
   },
   {
-    id: 7,
+
     title: "Clash-of-Legends: A Two Player Street Fighter Game",
     image: "src/assets/col.png",
     description: "Clash of Legends is an interactive, browser-based 2D fighting game utilizing object-oriented JavaScript and HTML5 Canvas. It implements a robust core game loop to manage real-time player inputs, sprite rendering, and precise hitbox collision detection. It includes complex state management systems to handle dynamic combat mechanics, including real-time health tracking, round-based countdown timers, and a strict win/loss condition logic, delivering a responsive, arcade-style game.",
@@ -194,7 +194,7 @@ export const projects = [
     link: "https://github.com/Kazedaa/Clash-of-Legends"
   },
   {
-    id: 8,
+
     title: "UnDIVE: Generalized Underwater Video Enhancement Using Generative Priors",
     image: "src/assets/undive_showcase.png",
     description: "UnDIVE is a generalized machine learning framework leveraging generative priors to solve severe aquatic visual distortions in underwater video media. Tackles the critical lack of ground-truth data and the inherent temporal inconsistencies of traditional single-image enhancement methods by designing a robust pipeline that ensures stable, high-fidelity frame sequences across diverse underwater environments. This research successfully bridged theoretical generative models with practical video enhancement challenges, culminating in a co-authored publication accepted at WACV 2025.",
@@ -202,7 +202,7 @@ export const projects = [
     link: "https://github.com/suhas-srinath/undive"
   },
   {
-    id: 9,
+
     title: "Daily DDPM Anime",
     image: "src/assets/daily_anime_ddpm.png",
     description: "An Instagram AI bot that generates and posts anime pictures. The bot utilizes a deep learning model, specifically a Denoising Diffusion Probabilistic Model (DDPM), implemented with PyTorch. The generated images are then automatically posted to Instagram.",
@@ -210,7 +210,7 @@ export const projects = [
     link: "https://github.com/Kazedaa/Daily-DDPM-Anime"
   },
   {
-    id: 10,
+
     title: "A Hole New World: Seamless Image Inpainting",
     image: "src/assets/a_whole_new_world.png",
     description: "Image inpainting is a computer vision task that involves filling in missing or damaged parts of an image. It has various applications including photo editing, image restoration, and object removal. The focus of this project is on image inpainting using PatchGAN, a type of Generative Adversarial Network (GAN), on the CelebA dataset, which contains over 200,000 celebrity images.",
@@ -218,7 +218,7 @@ export const projects = [
     link: "https://github.com/Kazedaa/A-Whole-New-World-Seamless-Image-Inpainting"
   },
   {
-    id: 11,
+
     title: "HARQ Soft Combining Using Bidirectional LSTMs",
     image: "src/assets/harq.png",
     description: "A deep learning-based error correction framework for wireless communications by optimizing the Hybrid Automatic Repeat Request (HARQ) protocol. A Bidirectional Long Short-Term Memory (Bi-LSTM) Autoencoder processes multiple corrupted transmission frames to seamlessly reconstruct a single, high-fidelity output frame. This framework successfully bridges sequence modeling with low-level network reliability, culminating in a co-first author publication in a Scopus-indexed Springer book chapter and a personal presentation at the SSWC2024 International Conference.",
@@ -226,7 +226,7 @@ export const projects = [
     link: "https://github.com/Kazedaa/HARQ-Soft-Combining-Using-Bidirectional-LSTMs"
   },
   {
-    id: 12,
+
     title: "End-to-End Encrypted Communication Using Purely Digital Systems",
     image: "src/assets/e2e_encrypted_comm.png",
     description: "The goal of this project is to design a system of units that communicate between each other via end-to-end encryption. The RSA encryption algorithm will be used and the user will be able to choose the kind of encryption. The aim is to achieve secure communication between two digital systems.",
@@ -237,7 +237,7 @@ export const projects = [
 
 export const publications = [
   {
-    id: 1,
+
     title: "MANTA: Physics-Informed Generalized Underwater Object Tracking",
     publisher: "Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), 2026, pp. 3472-3482",
     image: "src/assets/manta_overview.png",
@@ -246,7 +246,7 @@ export const publications = [
     link: "https://openaccess.thecvf.com/content/WACV2026/html/Srinath_MANTA_Physics-Informed_Generalized_Underwater_Object_Tracking_WACV_2026_paper.html"
   },
   {
-    id: 2,
+
     title: "HARQ Soft Combining Using Bidirectional LSTMs",
     publisher: "Smart Innovation, Systems and Technologies ((SIST,volume 433)), p 109-122",
     image: "src/assets/harq.png",
@@ -255,7 +255,7 @@ export const publications = [
     link: "https://link.springer.com/chapter/10.1007/978-981-96-1348-9_9"
   },
   {
-    id: 3,
+
     title: "UnDIVE: Generalized Underwater Video Enhancement using Generative Priors",
     publisher: "Proceedings of the Winter Conference on Applications of Computer Vision (WACV), 2025, pp. 8983-8994",
     image: "src/assets/undive_overview.png",

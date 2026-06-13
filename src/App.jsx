@@ -177,10 +177,20 @@ function BackgroundMusic() {
 }
 
 
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+  return null
+}
+
 function AnimatedRoutes() {
   const location = useLocation()
   return (
-    <AnimatePresence mode="wait">
+    <>
+      <ScrollToTop />
+      <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={
           <PageTransition><MainPage /></PageTransition>
@@ -196,6 +206,7 @@ function AnimatedRoutes() {
         } />
       </Routes>
     </AnimatePresence>
+    </>
   )
 }
 

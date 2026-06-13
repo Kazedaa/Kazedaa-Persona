@@ -413,7 +413,7 @@ export default function MainPage() {
             <img className="p5-modal-image" src={selectedHighlight.image} alt="Highlight" />
             <div className="p5-modal-date">{selectedHighlight.date}</div>
             <div className="p5-modal-desc">{selectedHighlight.description}</div>
-            <P5Button href={selectedHighlight.link} className="p5-modal-link" variant="red">
+            <P5Button href={selectedHighlight.link} className="p5-modal-link" variant="dark">
               VIEW MORE &gt;
             </P5Button>
           </div>

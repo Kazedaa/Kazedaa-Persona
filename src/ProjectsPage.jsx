@@ -237,7 +237,7 @@ export default function ProjectsPage() {
             <div className="p5-project-title" style={{ fontSize: '40px' }}>{selectedProject.title}</div>
             <div className="p5-modal-date">{selectedProject.date}</div>
             <div className="p5-modal-desc">{selectedProject.description}</div>
-              <P5Button href={selectedProject.link || "#"} className="p5-project-link-btn" variant="red">
+              <P5Button href={selectedProject.link || "#"} className="p5-project-link-btn" variant="dark">
                 VIEW PROJECT &gt;
               </P5Button>
           </div>

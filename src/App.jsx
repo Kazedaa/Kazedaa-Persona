@@ -10,7 +10,6 @@ import PublicationsPage from './PublicationsPage'
 import P5SideNav from './P5SideNav'
 import MinimalPortfolio from './MinimalPortfolio'
 import P5Button from './P5Button'
-import mainVideo from './assets/main1.mp4'
 import './App.css'
 
 const BGM_STATE_KEY = 'p5-bgm-enabled'
@@ -112,6 +111,7 @@ function BackgroundMusic() {
     localStorage.setItem(BGM_VOLUME_KEY, String(volume))
   }, [volume, isPlaying])
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const shouldAutoStart = localStorage.getItem(BGM_STATE_KEY) !== '0'
     if (!shouldAutoStart) return
@@ -176,20 +176,6 @@ function BackgroundMusic() {
   )
 }
 
-function SiteBackgroundVideo() {
-  return (
-    <video
-      className="site-bg-video"
-      src={mainVideo}
-      autoPlay
-      loop
-      muted
-      playsInline
-      preload="auto"
-      aria-hidden="true"
-    />
-  )
-}
 
 function AnimatedRoutes() {
   const location = useLocation()
@@ -226,7 +212,6 @@ export default function App() {
 
   return (
     <>
-      <SiteBackgroundVideo />
       <P5SideNav />
       <P5Button
         variant="dark"
@@ -241,9 +226,7 @@ export default function App() {
       >
         <span style={{letterSpacing: '-5px', wordSpacing: '12px'}}>EXIT METAVERSE</span>
       </P5Button>
-      <div className="site-content-layer">
-        <AnimatedRoutes />
-      </div>
+      <AnimatedRoutes />
       <BackgroundMusic />
     </>
   )

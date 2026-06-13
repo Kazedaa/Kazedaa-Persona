@@ -247,7 +247,7 @@ export default function PublicationsPage() {
             <div className="p5-modal-date">{selectedPub.date}</div>
             {selectedPub.publisher && <div className="p5-project-publisher" style={{ fontSize: '16px' }}>{selectedPub.publisher}</div>}
             <div className="p5-modal-desc">{selectedPub.description}</div>
-              <P5Button href={selectedPub.link || "#"} className="p5-project-link-btn" variant="red">
+              <P5Button href={selectedPub.link || "#"} className="p5-project-link-btn" variant="dark">
                 READ PAPER &gt;
               </P5Button>
           </div>

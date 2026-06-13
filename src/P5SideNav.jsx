@@ -1,19 +1,20 @@
 import { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { playSelectSound } from "./utils/audio.js";
+import jokerImg from "./assets/P5S_Protagonist_Dialogue3.png";
 
 const ITEMS = [
-  { id: "main",         label: "MAIN",          page: "/",            fontSize: 48, offsetX: 0,  offsetY: 0,  skew: -6,  skewY: 8  },
-  { id: "experience",   label: "EXPERIENCE",    page: "/experience",  fontSize: 36, offsetX: 12, offsetY: 20,  skew: -11, skewY: -6 },
-  { id: "projects",     label: "PROJECTS",      page: "/projects",    fontSize: 40, offsetX: 8,  offsetY: 15,  skew: 0, skewY: -4  },
-  { id: "publications", label: "PUBLICATIONS",  page: "/publications",fontSize: 32, offsetX: 16, offsetY: 25,  skew: -3,  skewY: 5   },
+  { id: "main",         label: "MAIN",          page: "/",            fontSize: 90, offsetX: 0,  offsetY: 0,  skew: -6,  skewY: 8  },
+  { id: "experience",   label: "EXPERIENCE",    page: "/experience",  fontSize: 70, offsetX: 30, offsetY: 20,  skew: -11, skewY: -6 },
+  { id: "projects",     label: "PROJECTS",      page: "/projects",    fontSize: 80, offsetX: 20,  offsetY: 15,  skew: 0, skewY: -4  },
+  { id: "publications", label: "PUBLICATIONS",  page: "/publications",fontSize: 60, offsetX: 40, offsetY: 25,  skew: -3,  skewY: 5   },
 ];
 
 const CLIP_SHAPES = [
-  () => "polygon(0% 44%, 24% 6%, 82% 0%, 100% 36%, 82% 100%, 18% 94%)",
-  () => "polygon(0% 44%, 24% 6%, 82% 0%, 100% 36%, 82% 100%, 18% 94%)",
-  () => "polygon(0% 44%, 24% 6%, 82% 0%, 100% 36%, 82% 100%, 18% 94%)",
-  () => "polygon(0% 44%, 24% 6%, 82% 0%, 100% 36%, 82% 100%, 18% 94%)",
+  () => "polygon(2% 10%, 98% 0%, 100% 85%, 95% 100%, 0% 92%)",
+  () => "polygon(0% 0%, 95% 8%, 100% 95%, 85% 100%, 5% 90%)",
+  () => "polygon(5% 5%, 100% 0%, 92% 100%, 80% 100%, 0% 85%)",
+  () => "polygon(0% 15%, 90% 0%, 100% 90%, 92% 100%, 8% 95%)",
 ];
 
 export default function P5SideNav() {
@@ -91,7 +92,7 @@ export default function P5SideNav() {
           position: fixed;
           inset: 0;
           background: rgba(0,0,0,0.7);
-          z-index: 998;
+          z-index: 997;
           opacity: 0;
           pointer-events: none;
           transition: opacity 0.3s ease;
@@ -107,21 +108,42 @@ export default function P5SideNav() {
           top: 0;
           left: 0;
           bottom: 0;
-          width: 450px;
+          width: 50vw;
+          min-width: 600px;
           max-width: 100vw;
-          background: url('/assets/p5-bg-pattern.png') #0d0d0d;
           z-index: 999;
           transform: translateX(-100%);
           transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
           display: flex;
           flex-direction: column;
-          padding: 100px 40px 40px 40px;
-          border-right: 5px solid #d92323;
-          box-shadow: 10px 0 20px rgba(0,0,0,0.5);
-          overflow-y: auto;
+          justify-content: center;
+          padding: 40px 80px;
         }
         .p5-sidenav-drawer.open {
           transform: translateX(0);
+        }
+
+        .p5-sidenav-image-drawer {
+          position: fixed;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          width: 60vw;
+          z-index: 998;
+          transform: translateX(100%);
+          transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+          pointer-events: none;
+          filter: drop-shadow(-12px 0px 0px #d92323);
+        }
+        .p5-sidenav-image-drawer.open {
+          transform: translateX(0);
+        }
+        .p5-sidenav-image-drawer img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: 40% center;
+          clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
         }
 
         .p5-sidenav-drawer .p5-menu {
@@ -170,6 +192,28 @@ export default function P5SideNav() {
           display: flex;
           align-items: center;
           isolation: isolate;
+        }
+        
+        .p5-base-poly-border {
+          position: absolute;
+          top: 50%;
+          transform-origin: left center;
+          background: #ffffff;
+          z-index: -2;
+          pointer-events: none;
+          transform: translateY(-50%) translateX(-25px);
+          transition: transform 0.2s;
+        }
+        
+        .p5-base-poly {
+          position: absolute;
+          top: 50%;
+          transform-origin: left center;
+          background: rgba(13, 13, 13, 0.95);
+          z-index: -1;
+          pointer-events: none;
+          transform: translateY(-50%) translateX(-20px);
+          transition: transform 0.2s;
         }
 
         @keyframes p5-shadow-pop {
@@ -273,8 +317,8 @@ export default function P5SideNav() {
             const isActive = active === i;
             const dist = Math.abs(i - active);
             const opacity = isActive ? 1 : Math.max(0.5, 1 - dist * 0.2);
-            const estW = item.label.length * item.fontSize * 0.6 + 80;
-            const estH = item.fontSize * 0.94;
+            const estW = item.label.length * item.fontSize * 0.8 + 200;
+            const estH = item.fontSize * 1.3;
             const clipFn = CLIP_SHAPES[i] ?? CLIP_SHAPES[0];
 
             return (
@@ -300,6 +344,22 @@ export default function P5SideNav() {
                   className="p5-skew-wrap"
                   style={{ transform: `skewX(${item.skew}deg) skewY(${item.skewY}deg)` }}
                 >
+                  <div
+                    className="p5-base-poly-border"
+                    style={{
+                      width: estW + 50,
+                      height: estH + 50,
+                      clipPath: clipFn(estW + 50, estH + 50),
+                    }}
+                  />
+                  <div
+                    className="p5-base-poly"
+                    style={{
+                      width: estW + 40,
+                      height: estH + 40,
+                      clipPath: clipFn(estW + 40, estH + 40),
+                    }}
+                  />
                   <div
                     key={isActive ? `pop-${i}-${animKey}` : `idle-${i}`}
                     className={`p5-shadow-tri${isActive ? ' pop' : ''}`}
@@ -337,6 +397,11 @@ export default function P5SideNav() {
             );
           })}
         </nav>
+      </div>
+
+      {/* The right image drawer */}
+      <div className={`p5-sidenav-image-drawer ${isOpen ? "open" : ""}`}>
+        <img src={jokerImg} alt="JOKER" />
       </div>
     </>
   );

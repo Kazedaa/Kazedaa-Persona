@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { playSelectSound } from "./utils/audio.js";
-import imgMain from "./assets/mainm2_trans.png";
-import imgExperience from "./assets/mainm3_trans.png";
-import imgProjects from "./assets/P5S_Protagonist_Dialogue2.png";
-import imgPublications from "./assets/P5S_Protagonist_Dialogue3.png";
+import imgMain from "./assets/p5-protagonist-main.png";
+import imgExperience from "./assets/p5-protagonist-experience.png";
+import imgProjects from "./assets/p5-protagonist-projects.png";
+import imgPublications from "./assets/p5-protagonist-publications.png";
 import P5Button from "./P5Button";
 
 const ITEMS = [

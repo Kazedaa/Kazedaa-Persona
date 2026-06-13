@@ -28,7 +28,7 @@ export const personalInfo = {
 export const highlights = [
   {
 
-    image: "src/assets/MANTA_poster.png",
+    image: "src/assets/manta-poster.png",
     description: "Authored MANTA: Physics-Informed Underwater Object Tracking, accepted to WACV 2026.",
     date: "March 2026",
     link: "https://wacv.thecvf.com/virtual/2026/poster/373"
@@ -42,21 +42,21 @@ export const highlights = [
   },
   {
 
-    image: "src/assets/echo_news_85.png",
+    image: "src/assets/echo-news-85.png",
     description: "Developed eBAF, a kernel-level eBPF Ad Firewall that received a shout-out from eBPF Foundation Leader, Bill Mulligan in his newsletter Echo News.",
     date: "July 2025",
     link: "https://www.linkedin.com/pulse/echo-news-85-bill-mulligan-jcsgf/"
   },
   {
 
-    image: "src/assets/undive_poster.jpg",
+    image: "src/assets/undive-poster.png",
     description: "Co-Authored UnDIVE: Generalized Underwater Video Enhancement using Generative Priors, accepted to WACV 2025, and presented at Tucson, USA.",
     date: "July 2025",
     link: "https://openaccess.thecvf.com/content/WACV2025/html/Srinath_UnDIVE_Generalized_Underwater_Video_Enhancement_using_Generative_Priors_WACV_2025_paper.html"
   },
   {
 
-    image: "src/assets/sswc.jpg",
+    image: "src/assets/sswc.png",
     description: "Authored HARQ Soft Combining Using Bidirectional LSTMs, accepted and presented at SSWC 2024.",
     date: "July 2025",
     link: "https://link.springer.com/chapter/10.1007/978-981-96-1348-9_9"
@@ -148,7 +148,7 @@ export const projects = [
   {
 
     title: "Bad Apple but it's a Bootloader",
-    image: "src/assets/badapple_uefi.png",
+    image: "src/assets/badapple-uefi.png",
     description: "A standalone UEFI application written in C that effectively acts as a bare-metal micro-operating system just to play a video during the computer's boot sequence. Bypassing the OS entirely, it interfaces directly with the motherboard's firmware and uses the UEFI Graphics Output Protocol (GOP) to stream video straight to the screen's framebuffer. To get around standard FAT32 file size limits, I wrote a custom video codec to compress the video into a 1-bit Run-Length Encoded (RLE) format that the C engine decodes on the fly.",
     date: "May 2026",
     link: "https://github.com/Kazedaa/Bad-Apple-but-its-a-bootloader"
@@ -156,7 +156,7 @@ export const projects = [
   {
 
     title: "MANTA: Physics-Informed Generalized Underwater Object Tracking",
-    image: "src/assets/manta_showcase.gif",
+    image: "src/assets/manta-showcase.gif",
     description: "MANTA is a state-of-the-art, physics-informed machine learning framework designed to solve severe aquatic visual distortions in underwater object tracking. Implements a novel dual-positive contrastive learning pipeline integrating Beer-Lambert optical priors, and a multi-stage tracking architecture that leverages geometric consistency to resolve complex occlusion and drift challenges. The framework achieves state-of-the-art performance across four major benchmarks (WebUOT-1M, UOT32, UTB180, UWCOT220), improving Success AUC by 6% while ensuring real-time efficiency, and culminated in a co-first author publication accepted at WACV 2026.",
     date: "May 2025",
     link: "https://github.com/Kazedaa/MANTA"
@@ -164,7 +164,7 @@ export const projects = [
   {
 
     title: "Bad Apple on a Terminal",
-    image: "src/assets/badapple_terminal.png",
+    image: "src/assets/badapple-terminal.png",
     description: "A silly project, rendering the Bad Apple music video on an ASCII Terminal.",
     date: "Jun 2025",
     link: "https://github.com/Kazedaa/badapple"
@@ -188,7 +188,7 @@ export const projects = [
   {
 
     title: "Clash-of-Legends: A Two Player Street Fighter Game",
-    image: "src/assets/col.png",
+    image: "src/assets/clash-of-legends.png",
     description: "Clash of Legends is an interactive, browser-based 2D fighting game utilizing object-oriented JavaScript and HTML5 Canvas. It implements a robust core game loop to manage real-time player inputs, sprite rendering, and precise hitbox collision detection. It includes complex state management systems to handle dynamic combat mechanics, including real-time health tracking, round-based countdown timers, and a strict win/loss condition logic, delivering a responsive, arcade-style game.",
     date: "Sep 2024",
     link: "https://github.com/Kazedaa/Clash-of-Legends"
@@ -196,7 +196,7 @@ export const projects = [
   {
 
     title: "UnDIVE: Generalized Underwater Video Enhancement Using Generative Priors",
-    image: "src/assets/undive_showcase.png",
+    image: "src/assets/undive-showcase.png",
     description: "UnDIVE is a generalized machine learning framework leveraging generative priors to solve severe aquatic visual distortions in underwater video media. Tackles the critical lack of ground-truth data and the inherent temporal inconsistencies of traditional single-image enhancement methods by designing a robust pipeline that ensures stable, high-fidelity frame sequences across diverse underwater environments. This research successfully bridged theoretical generative models with practical video enhancement challenges, culminating in a co-authored publication accepted at WACV 2025.",
     date: "Apr 2024",
     link: "https://github.com/suhas-srinath/undive"
@@ -204,7 +204,7 @@ export const projects = [
   {
 
     title: "Daily DDPM Anime",
-    image: "src/assets/daily_anime_ddpm.png",
+    image: "src/assets/daily-anime-ddpm.png",
     description: "An Instagram AI bot that generates and posts anime pictures. The bot utilizes a deep learning model, specifically a Denoising Diffusion Probabilistic Model (DDPM), implemented with PyTorch. The generated images are then automatically posted to Instagram.",
     date: "May 2024",
     link: "https://github.com/Kazedaa/Daily-DDPM-Anime"
@@ -212,7 +212,7 @@ export const projects = [
   {
 
     title: "A Hole New World: Seamless Image Inpainting",
-    image: "src/assets/a_whole_new_world.png",
+    image: "src/assets/a-whole-new-world.png",
     description: "Image inpainting is a computer vision task that involves filling in missing or damaged parts of an image. It has various applications including photo editing, image restoration, and object removal. The focus of this project is on image inpainting using PatchGAN, a type of Generative Adversarial Network (GAN), on the CelebA dataset, which contains over 200,000 celebrity images.",
     date: "Jan 2024",
     link: "https://github.com/Kazedaa/A-Whole-New-World-Seamless-Image-Inpainting"
@@ -228,7 +228,7 @@ export const projects = [
   {
 
     title: "End-to-End Encrypted Communication Using Purely Digital Systems",
-    image: "src/assets/e2e_encrypted_comm.png",
+    image: "src/assets/e2e-encrypted-comm.png",
     description: "The goal of this project is to design a system of units that communicate between each other via end-to-end encryption. The RSA encryption algorithm will be used and the user will be able to choose the kind of encryption. The aim is to achieve secure communication between two digital systems.",
     date: "Aug 2023",
     link: "https://github.com/AdiPadi2703/End-To-End-Encrypted-Communication"
@@ -240,7 +240,7 @@ export const publications = [
 
     title: "MANTA: Physics-Informed Generalized Underwater Object Tracking",
     publisher: "Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), 2026, pp. 3472-3482",
-    image: "src/assets/manta_overview.png",
+    image: "src/assets/manta-overview.png",
     description: "Underwater object tracking is challenging due to wavelength-dependent attenuation and scattering, which severely distort appearance across depths and water conditions. Existing trackers trained on terrestrial data fail to generalize to these physics-driven degradations. We present MANTA, a physics-informed framework integrating representation learning with tracking design for underwater scenarios. We propose a dual-positive contrastive learning strategy coupling temporal consistency with Beer–Lambert augmentations to yield features robust to both temporal and underwater distortions. We further introduce a multi-stage pipeline augmenting motion-based tracking with a physics-informed secondary association algorithm that integrates geometric consistency and appearance similarity for re-identification under occlusion and drift. To complement standard IoU metrics, we propose Center–Scale Consistency (CSC) and Geometric Alignment Score (GAS) to assess geometric fidelity. Experiments on four underwater benchmarks (WebUOT-1M, UOT32, UTB180, UWCOT220) show that MANTA achieves state-of-the-art performance, improving Success AUC by up to 6%, while ensuring stable long-term generalized underwater tracking and efficient runtime.",
     date: "Mar 6, 2026",
     link: "https://openaccess.thecvf.com/content/WACV2026/html/Srinath_MANTA_Physics-Informed_Generalized_Underwater_Object_Tracking_WACV_2026_paper.html"
@@ -258,7 +258,7 @@ export const publications = [
 
     title: "UnDIVE: Generalized Underwater Video Enhancement using Generative Priors",
     publisher: "Proceedings of the Winter Conference on Applications of Computer Vision (WACV), 2025, pp. 8983-8994",
-    image: "src/assets/undive_overview.png",
+    image: "src/assets/undive-overview.png",
     description: "With the rise of marine exploration, underwater imaging has gained significant attention as a research topic. Underwater video enhancement has become crucial for real-time computer vision tasks in marine exploration. However, most existing methods focus on enhancing individual frames and neglect video temporal dynamics, leading to visually poor enhancements. Furthermore, the lack of ground-truth references limits the use of abundant available underwater video data in many applications. To address these issues, we propose a two-stage framework for enhancing underwater videos. The first stage uses a denoising diffusion probabilistic model to learn a generative prior from unlabeled data, capturing robust and descriptive feature representations. In the second stage, this prior is incorporated into a physics-based image formulation for spatial enhancement, while also enforcing temporal consistency between video frames. Our method enables real-time and computationally-efficient processing of high-resolution underwater videos at lower resolutions, and offers efficient enhancement in the presence of diverse water-types. Extensive experiments on four datasets show that our approach generalizes well and outperforms existing enhancement methods.",
     date: "Mar 3, 2025",
     link: "https://openaccess.thecvf.com/content/WACV2025/html/Srinath_UnDIVE_Generalized_Underwater_Video_Enhancement_using_Generative_Priors_WACV_2025_paper.html"

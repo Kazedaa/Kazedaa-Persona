@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { personalInfo, highlights, experiences, projects, publications } from './data/portfolioData';
 import p5Logo from './assets/logo.png';
-import profilePic from './assets/profile_picture.jpg';
+import profilePic from './assets/profile-picture.png';
 
 export default function MinimalPortfolio({ onActivateP5 }) {
   const [theme, setTheme] = useState('dark');

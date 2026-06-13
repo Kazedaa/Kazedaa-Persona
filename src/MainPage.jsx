@@ -13,8 +13,6 @@ export default function MainPage() {
           padding: 80px 40px 40px 100px;
           color: white;
           width: 100%;
-          height: 100vh;
-          overflow-y: auto;
           display: flex;
           flex-direction: column;
           gap: 40px;

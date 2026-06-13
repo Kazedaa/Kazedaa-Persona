@@ -31,6 +31,5 @@ body {
   background:
     radial-gradient(circle at 15% 15%, rgba(217,35,35,0.35), rgba(13,13,13,0.92) 45%),
     linear-gradient(140deg, #0d0d0d 0%, #732424 55%, #0d0d0d 100%);
-  overflow: hidden;
   font-family: 'Persona5Main';
 }

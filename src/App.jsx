@@ -15,7 +15,7 @@ import './App.css'
 
 const BGM_STATE_KEY = 'p5-bgm-enabled'
 const BGM_VOLUME_KEY = 'p5-bgm-volume'
-const DEFAULT_VOLUME = 0.45
+const DEFAULT_VOLUME = 1
 const FADE_MS = 450
 
 function BackgroundMusic() {
@@ -24,8 +24,11 @@ function BackgroundMusic() {
   const autoStartRef = useRef(false)
   const [isPlaying, setIsPlaying] = useState(false)
   const [volume, setVolume] = useState(() => {
-    const saved = Number(localStorage.getItem(BGM_VOLUME_KEY))
-    if (Number.isFinite(saved)) return Math.min(1, Math.max(0, saved))
+    const raw = localStorage.getItem(BGM_VOLUME_KEY)
+    if (raw !== null) {
+      const saved = Number(raw)
+      if (Number.isFinite(saved)) return Math.min(1, Math.max(0, saved))
+    }
     return DEFAULT_VOLUME
   })
 

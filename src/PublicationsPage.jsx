@@ -91,8 +91,8 @@ export default function PublicationsPage() {
           color: #ffffff;
           margin-bottom: 5px;
           -webkit-text-stroke: 1px black;
-          letter-spacing: -1px;
-          word-spacing: 5px;
+          letter-spacing: -8px;
+          word-spacing: 12px;
         }
 
         .p5-project-date {
@@ -119,9 +119,10 @@ export default function PublicationsPage() {
           margin-bottom: 20px;
           flex: 1;
           display: -webkit-box;
-          -webkit-line-clamp: 4;
+          -webkit-line-clamp: 3;
           -webkit-box-orient: vertical;
           overflow: hidden;
+          max-height: 4.5em;
         }
 
         .p5-project-link-btn {

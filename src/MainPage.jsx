@@ -144,6 +144,7 @@ export default function MainPage() {
           -webkit-line-clamp: 3;
           -webkit-box-orient: vertical;
           overflow: hidden;
+          max-height: 3.9em;
         }
 
         .p5-socials-links {
@@ -187,8 +188,8 @@ export default function MainPage() {
         .p5-exp-company {
           font-family: 'Persona5Main';
           font-size: 32px;
-          letter-spacing: -2px;
-          word-spacing: 6px;
+          letter-spacing: -10px;
+          word-spacing: 12px;
           color: white;
         }
         .p5-exp-role {
@@ -196,6 +197,8 @@ export default function MainPage() {
           font-weight: bold;
           margin-bottom: 5px;
           font-size: 18px;
+          letter-spacing: -3px;
+          word-spacing: 12px;
         }
 
         /* Education */
@@ -205,8 +208,8 @@ export default function MainPage() {
         .p5-edu-degree {
           font-family: 'Persona5Main';
           font-size: 32px;
-          letter-spacing: -2px;
-          word-spacing: 6px;
+          letter-spacing: -10px;
+          word-spacing: 12px;
           color: white;
         }
         .p5-edu-school {
@@ -214,6 +217,8 @@ export default function MainPage() {
           font-weight: bold;
           font-size: 18px;
           margin-bottom: 2px;
+          letter-spacing: -3px;
+          word-spacing: 12px;
         }
         .p5-edu-date {
           font-size: 14px;

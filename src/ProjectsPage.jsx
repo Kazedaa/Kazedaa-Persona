@@ -91,8 +91,8 @@ export default function ProjectsPage() {
           color: #ffffff;
           margin-bottom: 5px;
           -webkit-text-stroke: 1px black;
-          letter-spacing: -1px;
-          word-spacing: 5px;
+          letter-spacing: -8px;
+          word-spacing: 12px;
         }
 
         .p5-project-date {
@@ -100,8 +100,8 @@ export default function ProjectsPage() {
           font-size: 18px;
           color: #d92323;
           margin-bottom: 15px;
-          letter-spacing: -1px;
-          word-spacing: 4px;
+          letter-spacing: -2px;
+          word-spacing: 10px;
         }
 
         .p5-project-desc {
@@ -111,9 +111,10 @@ export default function ProjectsPage() {
           margin-bottom: 20px;
           flex: 1;
           display: -webkit-box;
-          -webkit-line-clamp: 4;
+          -webkit-line-clamp: 3;
           -webkit-box-orient: vertical;
           overflow: hidden;
+          max-height: 4.5em;
         }
 
         .p5-project-link-btn {

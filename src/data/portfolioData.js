@@ -12,7 +12,7 @@ export const personalInfo = {
     {
       degree: "Master of Science in Computer Science",
       school: "University of California, San Diego (UCSD)",
-      date: "2026 - Present(2028)"
+      date: "2026 - 2028"
     },
     {
       degree: "Bachelor of Technology",
@@ -89,7 +89,7 @@ export const experiences = [
     id: 3,
     company: "IEEE NITK",
     role: "Project Head",
-    dateRange: "April 2025 - April 2026",
+    dateRange: "Apr 2025 - Apr 2026",
     description: "Directed the year-long technical mentorship program and oversaw financial operations for the student chapter. This leadership role allowed me to step outside of pure engineering to hone my skills in project management, resource allocation, and organizational strategy.",
     highlights: [
     ]
@@ -112,7 +112,7 @@ export const experiences = [
     id: 5,
     company: "IEEE NITK",
     role: "Executive Member",
-    dateRange: "Dec 2022 - April 2026",
+    dateRange: "Dec 2022 - Apr 2026",
     description: "Mentored a team of junior developers through the end-to-end research and development of a complex computer vision pipeline. This role allowed me to develop my technical leadership skills, translating my deep learning expertise into actionable guidance and architectural direction for the students.",
     highlights: [
     ]

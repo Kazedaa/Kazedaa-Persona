@@ -7,7 +7,19 @@ export const personalInfo = {
     linkedin: "https://www.linkedin.com/in/hemangjamadagni/",
     github: "https://github.com/Kazedaa",
     googleScholar: "https://scholar.google.com/"
-  }
+  },
+  educationList: [
+    {
+      degree: "Master of Science in Computer Science",
+      school: "University of California, San Diego (UCSD)",
+      date: "2026 - Present(2028)"
+    },
+    {
+      degree: "Bachelor of Technology",
+      school: "National Institute of Technology Karnataka (NITK)",
+      date: "2022 - 2026"
+    }
+  ]
 };
 
 export const highlights = [

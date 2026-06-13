@@ -33,7 +33,8 @@ export default function ExperiencePage() {
         .p5-title {
           font-family: 'Persona5Main';
           font-size: 64px;
-          letter-spacing: 2px;
+          letter-spacing: -2px;
+          word-spacing: 8px;
           line-height: 1;
           -webkit-text-stroke: 2px black;
         }
@@ -75,14 +76,16 @@ export default function ExperiencePage() {
           font-size: 40px;
           color: #ffffff;
           -webkit-text-stroke: 1px black;
-          letter-spacing: 2px;
+          letter-spacing: -1px;
+          word-spacing: 5px;
         }
 
         .p5-date-range {
           font-family: 'Persona5Main';
           font-size: 24px;
           color: #d92323;
-          letter-spacing: 1px;
+          letter-spacing: -1px;
+          word-spacing: 4px;
         }
 
         .p5-role {

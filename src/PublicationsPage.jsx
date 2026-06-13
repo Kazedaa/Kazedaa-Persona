@@ -33,7 +33,8 @@ export default function PublicationsPage() {
         .p5-title {
           font-family: 'Persona5Main';
           font-size: 64px;
-          letter-spacing: 2px;
+          letter-spacing: -2px;
+          word-spacing: 8px;
           line-height: 1;
           -webkit-text-stroke: 2px black;
         }
@@ -80,7 +81,6 @@ export default function PublicationsPage() {
           padding: 20px;
           display: flex;
           flex-direction: column;
-          flex: 1;
         }
 
         .p5-project-title {
@@ -89,13 +89,24 @@ export default function PublicationsPage() {
           color: #ffffff;
           margin-bottom: 5px;
           -webkit-text-stroke: 1px black;
-          letter-spacing: 1px;
+          letter-spacing: -1px;
+          word-spacing: 5px;
         }
 
         .p5-project-date {
           font-family: 'Persona5Main';
           font-size: 18px;
           color: #d92323;
+          margin-bottom: 5px;
+          letter-spacing: -1px;
+          word-spacing: 4px;
+        }
+        
+        .p5-project-publisher {
+          font-family: sans-serif;
+          font-size: 14px;
+          color: #aaa;
+          font-style: italic;
           margin-bottom: 15px;
         }
 
@@ -104,7 +115,6 @@ export default function PublicationsPage() {
           font-size: 15px;
           line-height: 1.5;
           margin-bottom: 20px;
-          flex: 1;
         }
 
         .p5-project-link-btn {
@@ -113,6 +123,7 @@ export default function PublicationsPage() {
           color: black;
           font-family: 'Persona5Main';
           font-size: 20px;
+          letter-spacing: -1px;
           padding: 5px 15px;
           border: 2px solid black;
           transform: skewX(-10deg);
@@ -132,6 +143,7 @@ export default function PublicationsPage() {
             <div className="p5-project-info">
               <div className="p5-project-title">{pub.title}</div>
               <div className="p5-project-date">{pub.date}</div>
+              {pub.publisher && <div className="p5-project-publisher">{pub.publisher}</div>}
               <p className="p5-project-desc">{pub.description}</p>
               <div className="p5-project-link-btn">READ &gt;</div>
             </div>

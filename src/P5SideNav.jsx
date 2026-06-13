@@ -1,7 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { playSelectSound } from "./utils/audio.js";
-import jokerImg from "./assets/P5S_Protagonist_Dialogue3.png";
+import imgMain from "./assets/mainm2_trans.png";
+import imgExperience from "./assets/mainm3_trans.png";
+import imgProjects from "./assets/P5S_Protagonist_Dialogue2.png";
+import imgPublications from "./assets/P5S_Protagonist_Dialogue3.png";
 
 const ITEMS = [
   { id: "main",         label: "MAIN",          page: "/",            fontSize: 90, offsetX: 0,  offsetY: 0,  skew: -6,  skewY: 8  },
@@ -16,6 +19,8 @@ const CLIP_SHAPES = [
   () => "polygon(5% 5%, 100% 0%, 92% 100%, 80% 100%, 0% 85%)",
   () => "polygon(0% 15%, 90% 0%, 100% 90%, 92% 100%, 8% 95%)",
 ];
+
+const IMAGES = [imgMain, imgExperience, imgProjects, imgPublications];
 
 export default function P5SideNav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -401,7 +406,7 @@ export default function P5SideNav() {
 
       {/* The right image drawer */}
       <div className={`p5-sidenav-image-drawer ${isOpen ? "open" : ""}`}>
-        <img src={jokerImg} alt="JOKER" />
+        <img src={IMAGES[active]} alt="Joker" />
       </div>
     </>
   );

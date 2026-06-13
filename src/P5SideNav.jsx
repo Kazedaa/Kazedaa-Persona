@@ -110,9 +110,11 @@ export default function P5SideNav() {
           flex-direction: column;
           justify-content: center;
           padding: 40px 80px;
+          pointer-events: none;
         }
         .p5-sidenav-drawer.open {
           transform: translateX(0);
+          pointer-events: auto;
         }
 
         .p5-sidenav-image-drawer {
@@ -145,7 +147,6 @@ export default function P5SideNav() {
           flex-direction: column;
           align-items: flex-start;
           gap: 30px;
-          pointer-events: all;
         }
 
         .p5-sidenav-drawer .p5-row {

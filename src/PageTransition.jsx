@@ -32,6 +32,7 @@ function CombinedTransition() {
             clipPath: "polygon(0 0, 100% 0, calc(100% - 120px) 100%, 0 100%)",
             transform: "rotate(-18deg)",
             transformOrigin: "left center",
+            pointerEvents: "none",
           }}
           initial={{ x: -500, opacity: 0 }}
           animate={{ x: [-500, 20, 0], opacity: [1, 1, 0] }}
@@ -56,6 +57,7 @@ function CombinedTransition() {
             zIndex: 996 - i,
             transform: "skewX(-16deg)",
             transformOrigin: "top",
+            pointerEvents: "none",
           }}
           initial={{ y: -1200, opacity: 1 }}
           animate={{ y: [-1200, 0, 0, 1200] }}

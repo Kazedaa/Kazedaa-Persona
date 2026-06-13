@@ -19,11 +19,6 @@ body {
   pointer-events: none;
 }
 
-.site-content-layer {
-  position: relative;
-  z-index: 1;
-}
-
 #menu-screen {
   position: relative;
   width: 100vw;

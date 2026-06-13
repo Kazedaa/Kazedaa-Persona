@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { personalInfo, highlights, experiences, projects, publications } from './data/portfolioData';
+import p5Logo from './assets/logo.png';
 
 export default function MinimalPortfolio({ onActivateP5 }) {
   const [theme, setTheme] = useState('dark');
@@ -21,9 +22,10 @@ export default function MinimalPortfolio({ onActivateP5 }) {
             {theme === 'light' ? 'DARK MODE' : 'LIGHT MODE'}
           </button>
         </div>
-        <div className="minimal-nav-right">
-          <button className="minimal-btn easter-egg-btn" onClick={onActivateP5}>
-            P5
+        <div className="minimal-nav-right easter-egg-container">
+          <div className="easter-egg-text">TAKE YOUR HEART</div>
+          <button className="easter-egg-btn" onClick={onActivateP5}>
+            <img src={p5Logo} alt="P5 Logo" />
           </button>
         </div>
       </nav>
@@ -167,18 +169,52 @@ export default function MinimalPortfolio({ onActivateP5 }) {
           color: var(--bg-color);
         }
         
-        .easter-egg-btn {
-          border-color: transparent;
-          opacity: 0.2;
-          font-weight: bold;
+        .easter-egg-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 0.5rem;
+          margin-top: -1rem;
+          animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+          0% { transform: translateY(0); }
+          50% { transform: translateY(-5px); }
+          100% { transform: translateY(0); }
+        }
+
+        .easter-egg-text {
+          font-family: 'Persona5Main', sans-serif;
+          font-size: 1.6rem;
+          color: #d92323;
+          letter-spacing: 1px;
+          -webkit-text-stroke: 1px black;
+          transform: skewX(-10deg);
+          text-shadow: 2px 2px 0px rgba(0,0,0,0.2);
         }
         
-        .easter-egg-btn:hover {
-          background: #d92323;
-          color: white;
-          border-color: #d92323;
-          opacity: 1;
-          transform: scale(1.1) rotate(-5deg);
+        .easter-egg-btn {
+          background: transparent;
+          border: none;
+          padding: 0;
+          cursor: pointer;
+          transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          width: 140px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        
+        .easter-egg-btn img {
+          width: 100%;
+          transition: transform 0.3s ease, filter 0.3s ease;
+          filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
+        }
+
+        .easter-egg-btn:hover img {
+          transform: scale(1.15) rotate(-5deg);
+          filter: drop-shadow(4px 8px 12px rgba(217, 35, 35, 0.6));
         }
         
         .minimal-header {

@@ -9,6 +9,7 @@ import ProjectsPage from './ProjectsPage'
 import PublicationsPage from './PublicationsPage'
 import P5SideNav from './P5SideNav'
 import MinimalPortfolio from './MinimalPortfolio'
+import P5Button from './P5Button'
 import mainVideo from './assets/main1.mp4'
 import './App.css'
 
@@ -230,26 +231,19 @@ export default function App() {
     <>
       <SiteBackgroundVideo />
       <P5SideNav />
-      <button
+      <P5Button
+        variant="red"
+        onClick={() => setIsP5Theme(false)}
         style={{
           position: 'fixed',
           bottom: '20px',
           right: '20px',
           zIndex: 9999,
-          background: 'black',
-          color: 'white',
-          border: '2px solid white',
-          padding: '10px 20px',
-          fontFamily: 'Persona5Main',
-          fontSize: '20px',
-          cursor: 'pointer',
-          transform: 'skewX(-10deg)',
-          boxShadow: '4px 4px 0px #d92323'
+          fontSize: '24px'
         }}
-        onClick={() => setIsP5Theme(false)}
       >
-        EXIT META VERSE
-      </button>
+        EXIT METAVERSE
+      </P5Button>
       <div className="site-content-layer">
         <AnimatedRoutes />
       </div>

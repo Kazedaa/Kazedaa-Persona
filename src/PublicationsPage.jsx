@@ -48,6 +48,19 @@ export default function PublicationsPage() {
           max-width: 1200px;
         }
 
+        .p5-project-card-wrapper {
+          cursor: pointer;
+          position: relative;
+          height: 100%;
+          transition: transform 0.2s;
+          z-index: 1;
+        }
+
+        .p5-project-card-wrapper:hover {
+          transform: scale(1.03);
+          z-index: 10;
+        }
+
         .p5-project-card {
           background: rgba(13, 13, 13, 0.9);
           border: 3px solid white;
@@ -58,11 +71,11 @@ export default function PublicationsPage() {
           transition: transform 0.2s, box-shadow 0.2s;
           display: flex;
           flex-direction: column;
-          cursor: pointer;
+          height: 100%;
         }
 
-        .p5-project-card:hover {
-          transform: scale(1.03) rotate(-1deg);
+        .p5-project-card-wrapper:hover .p5-project-card {
+          transform: rotate(-1deg);
           box-shadow: 8px 8px 0px #d92323;
         }
 
@@ -199,21 +212,23 @@ export default function PublicationsPage() {
 
       <div className="p5-projects-grid">
         {publications.map((pub, idx) => (
-          <div key={idx} className="p5-project-card" onClick={() => setSelectedPub(pub)}>
-            <img src={pub.image} alt={pub.title} className="p5-project-img" />
-            <div className="p5-project-info">
-              <div className="p5-project-title">{pub.title}</div>
-              <div className="p5-project-date">{pub.date}</div>
-              {pub.publisher && <div className="p5-project-publisher">{pub.publisher}</div>}
-              <p className="p5-project-desc">{pub.description}</p>
-              <P5Button 
-                href={pub.link || "#"} 
-                className="p5-project-link-btn" 
-                onClick={(e) => e.stopPropagation()}
-                variant="dark"
-              >
-                READ &gt;
-              </P5Button>
+          <div key={idx} className="p5-project-card-wrapper" onClick={() => setSelectedPub(pub)}>
+            <div className="p5-project-card">
+              <img src={pub.image} alt={pub.title} className="p5-project-img" />
+              <div className="p5-project-info">
+                <div className="p5-project-title">{pub.title}</div>
+                <div className="p5-project-date">{pub.date}</div>
+                {pub.publisher && <div className="p5-project-publisher">{pub.publisher}</div>}
+                <p className="p5-project-desc">{pub.description}</p>
+                <P5Button 
+                  href={pub.link || "#"} 
+                  className="p5-project-link-btn" 
+                  onClick={(e) => e.stopPropagation()}
+                  variant="dark"
+                >
+                  READ &gt;
+                </P5Button>
+              </div>
             </div>
           </div>
         ))}

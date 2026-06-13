@@ -138,19 +138,31 @@ export default function MainPage() {
           background: #d92323;
         }
 
-        .p5-highlight-card {
+        .p5-highlight-card-wrapper {
           flex: 0 0 350px;
+          cursor: pointer;
+          position: relative;
+          transition: transform 0.2s;
+          z-index: 1;
+        }
+
+        .p5-highlight-card-wrapper:hover {
+          transform: scale(1.02);
+          z-index: 10;
+        }
+
+        .p5-highlight-card {
           display: flex;
           background: #1a1a1a;
           border: 2px solid #732424;
-          cursor: pointer;
           color: white;
           transition: transform 0.2s, border-color 0.2s;
           clip-path: polygon(2% 0, 100% 0, 98% 100%, 0 98%);
+          height: 100%;
         }
 
-        .p5-highlight-card:hover {
-          transform: scale(1.02) rotate(-1deg);
+        .p5-highlight-card-wrapper:hover .p5-highlight-card {
+          transform: rotate(-1deg);
           border-color: #d92323;
         }
 
@@ -355,11 +367,13 @@ export default function MainPage() {
         <h3>HIGHLIGHTS</h3>
         <div className="p5-highlights-grid">
           {highlights.map((hl, idx) => (
-            <div key={idx} className="p5-highlight-card" onClick={() => setSelectedHighlight(hl)}>
-              <img src={hl.image} alt="highlight" />
-              <div className="p5-highlight-info">
-                <span className="p5-date">{hl.date}</span>
-                <p>{hl.description}</p>
+            <div key={idx} className="p5-highlight-card-wrapper" onClick={() => setSelectedHighlight(hl)}>
+              <div className="p5-highlight-card">
+                <img src={hl.image} alt="highlight" />
+                <div className="p5-highlight-info">
+                  <span className="p5-date">{hl.date}</span>
+                  <p>{hl.description}</p>
+                </div>
               </div>
             </div>
           ))}
@@ -382,7 +396,7 @@ export default function MainPage() {
         <div className="p5-socials-links">
           {Object.entries(personalInfo.socials).map(([key, link]) => (
             <P5Button key={key} href={link} className="p5-social-link" variant="dark">
-              {key.toUpperCase()}
+              <span style={{letterSpacing: '-4px', wordSpacing: '6px'}}>{key.toUpperCase()}</span>
             </P5Button>
           ))}
         </div>

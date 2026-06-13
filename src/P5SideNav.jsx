@@ -291,7 +291,7 @@ export default function P5SideNav() {
       <P5Button 
         className="p5-sidenav-trigger" 
         onClick={() => setIsOpen(!isOpen)}
-        variant="red"
+        variant="dark"
       >
         {isOpen ? "CLOSE" : "MENU"}
       </P5Button>

@@ -437,7 +437,6 @@ export default function MinimalPortfolio({ onActivateP5 }) {
           border-bottom: 1px solid var(--text-color);
           padding-bottom: 2px;
           transition: opacity 0.2s;
-          margin-top: auto;
           align-self: flex-start;
         }
 

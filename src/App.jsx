@@ -90,8 +90,10 @@ function BackgroundMusic() {
   const toggleMusic = async () => {
     if (isPlaying) {
       stopMusic()
+      localStorage.setItem(BGM_STATE_KEY, '0')
       return
     }
+    localStorage.setItem(BGM_STATE_KEY, '1')
     await startMusic()
   }
 
@@ -108,10 +110,6 @@ function BackgroundMusic() {
   }, [volume, isPlaying])
 
   useEffect(() => {
-    localStorage.setItem(BGM_STATE_KEY, isPlaying ? '1' : '0')
-  }, [isPlaying])
-
-  useEffect(() => {
     const shouldAutoStart = localStorage.getItem(BGM_STATE_KEY) !== '0'
     if (!shouldAutoStart) return
 
@@ -120,6 +118,8 @@ function BackgroundMusic() {
       if (!autoStartRef.current) return
       await startMusic()
     }
+
+    tryAutoplay()
 
     const unlock = async () => {
       if (!autoStartRef.current) return
@@ -212,13 +212,7 @@ function AnimatedRoutes() {
 
 export default function App() {
   const navigate = useNavigate();
-  const [isP5Theme, setIsP5Theme] = useState(() => {
-    return localStorage.getItem('isP5Theme') === 'true';
-  });
-
-  useEffect(() => {
-    localStorage.setItem('isP5Theme', isP5Theme);
-  }, [isP5Theme]);
+  const [isP5Theme, setIsP5Theme] = useState(false);
 
   if (!isP5Theme) {
     return <MinimalPortfolio onActivateP5={() => {
@@ -232,7 +226,7 @@ export default function App() {
       <SiteBackgroundVideo />
       <P5SideNav />
       <P5Button
-        variant="red"
+        variant="dark"
         onClick={() => setIsP5Theme(false)}
         style={{
           position: 'fixed',

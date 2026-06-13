@@ -5,6 +5,7 @@ import imgMain from "./assets/mainm2_trans.png";
 import imgExperience from "./assets/mainm3_trans.png";
 import imgProjects from "./assets/P5S_Protagonist_Dialogue2.png";
 import imgPublications from "./assets/P5S_Protagonist_Dialogue3.png";
+import P5Button from "./P5Button";
 
 const ITEMS = [
   { id: "main",         label: "MAIN",          page: "/",            fontSize: 90, offsetX: 0,  offsetY: 0,  skew: -6,  skewY: 8  },
@@ -72,25 +73,11 @@ export default function P5SideNav() {
     <>
       <style>{`
         .p5-sidenav-trigger {
-          position: fixed;
+          position: fixed !important;
           top: 20px;
           left: 20px;
           z-index: 1000;
-          background: #d92323;
-          color: white;
-          border: 3px solid #000;
-          padding: 10px 20px;
-          font-family: 'Persona5Main';
           font-size: 32px;
-          cursor: pointer;
-          transform: skewX(-10deg);
-          transition: transform 0.2s, background 0.2s;
-          box-shadow: 4px 4px 0px rgba(0,0,0,0.8);
-          letter-spacing: 2px;
-        }
-        .p5-sidenav-trigger:hover {
-          transform: skewX(-10deg) scale(1.05);
-          background: #ff3333;
         }
 
         .p5-sidenav-overlay {
@@ -301,13 +288,13 @@ export default function P5SideNav() {
       `}</style>
 
       {/* Button to toggle navigation */}
-      <button 
+      <P5Button 
         className="p5-sidenav-trigger" 
         onClick={() => setIsOpen(!isOpen)}
-        aria-label="Toggle Menu"
+        variant="red"
       >
         {isOpen ? "CLOSE" : "MENU"}
-      </button>
+      </P5Button>
 
       {/* Overlay to close menu when clicking outside */}
       <div 

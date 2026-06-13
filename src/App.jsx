@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import PageTransition from './PageTransition'
 
@@ -8,6 +8,7 @@ import ExperiencePage from './ExperiencePage'
 import ProjectsPage from './ProjectsPage'
 import PublicationsPage from './PublicationsPage'
 import P5SideNav from './P5SideNav'
+import MinimalPortfolio from './MinimalPortfolio'
 import mainVideo from './assets/main1.mp4'
 import './App.css'
 
@@ -195,13 +196,13 @@ function AnimatedRoutes() {
           <PageTransition><MainPage /></PageTransition>
         } />
         <Route path="/experience" element={
-          <PageTransition variant="about"><ExperiencePage /></PageTransition>
+          <PageTransition><ExperiencePage /></PageTransition>
         } />
         <Route path="/projects" element={
           <PageTransition><ProjectsPage /></PageTransition>
         } />
         <Route path="/publications" element={
-          <PageTransition variant="socials"><PublicationsPage /></PageTransition>
+          <PageTransition><PublicationsPage /></PageTransition>
         } />
       </Routes>
     </AnimatePresence>
@@ -209,10 +210,46 @@ function AnimatedRoutes() {
 }
 
 export default function App() {
+  const navigate = useNavigate();
+  const [isP5Theme, setIsP5Theme] = useState(() => {
+    return localStorage.getItem('isP5Theme') === 'true';
+  });
+
+  useEffect(() => {
+    localStorage.setItem('isP5Theme', isP5Theme);
+  }, [isP5Theme]);
+
+  if (!isP5Theme) {
+    return <MinimalPortfolio onActivateP5={() => {
+      navigate('/');
+      setIsP5Theme(true);
+    }} />;
+  }
+
   return (
     <>
       <SiteBackgroundVideo />
       <P5SideNav />
+      <button
+        style={{
+          position: 'fixed',
+          bottom: '20px',
+          right: '20px',
+          zIndex: 9999,
+          background: 'black',
+          color: 'white',
+          border: '2px solid white',
+          padding: '10px 20px',
+          fontFamily: 'Persona5Main',
+          fontSize: '20px',
+          cursor: 'pointer',
+          transform: 'skewX(-10deg)',
+          boxShadow: '4px 4px 0px #d92323'
+        }}
+        onClick={() => setIsP5Theme(false)}
+      >
+        EXIT META VERSE
+      </button>
       <div className="site-content-layer">
         <AnimatedRoutes />
       </div>

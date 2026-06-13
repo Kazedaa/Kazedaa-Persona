@@ -12,12 +12,15 @@ export const personalInfo = {
     {
       degree: "Master of Science in Computer Science",
       school: "University of California, San Diego (UCSD)",
-      date: "2026 - 2028"
+      date: "2026 - 2028",
+      major: "Computer Science"
     },
     {
       degree: "Bachelor of Technology",
       school: "National Institute of Technology Karnataka (NITK)",
-      date: "2022 - 2026"
+      date: "2022 - 2026",
+      major: "Computer Science and Engineering",
+      minor: "Machine Learning"
     }
   ]
 };

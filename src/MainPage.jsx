@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { personalInfo, highlights, experiences } from "./data/portfolioData";
+import P5Button from "./P5Button";
 
 export default function MainPage() {
   const [selectedHighlight, setSelectedHighlight] = useState(null);
@@ -154,23 +155,7 @@ export default function MainPage() {
         }
 
         .p5-social-link {
-          background: white;
-          color: black;
-          font-family: 'Persona5Main';
           font-size: 24px;
-          letter-spacing: -1px;
-          padding: 5px 15px;
-          text-decoration: none;
-          border: 2px solid black;
-          box-shadow: 3px 3px 0px #d92323;
-          transform: skewX(-10deg);
-          transition: transform 0.2s, background 0.2s;
-        }
-
-        .p5-social-link:hover {
-          transform: skewX(-10deg) translateY(-3px);
-          background: #d92323;
-          color: white;
         }
 
         /* Experience Summary */
@@ -288,23 +273,7 @@ export default function MainPage() {
           margin-bottom: 25px;
         }
         .p5-modal-link {
-          display: inline-block;
-          background: white;
-          color: black;
-          font-family: 'Persona5Main';
           font-size: 24px;
-          letter-spacing: -1px;
-          padding: 8px 20px;
-          text-decoration: none;
-          border: 2px solid black;
-          box-shadow: 4px 4px 0px #d92323;
-          transform: skewX(-10deg);
-          transition: transform 0.2s, background 0.2s;
-        }
-        .p5-modal-link:hover {
-          transform: skewX(-10deg) translateY(-3px);
-          background: #d92323;
-          color: white;
         }
       `}</style>
 
@@ -327,7 +296,9 @@ export default function MainPage() {
             <div key={idx} className="p5-edu-item">
               <div className="p5-edu-degree">{edu.degree}</div>
               <div className="p5-edu-school">{edu.school}</div>
-              <div className="p5-edu-date">{edu.date}</div>
+              <div className="p5-edu-date" style={{ marginBottom: '10px' }}>{edu.date}</div>
+              {edu.major && <div style={{ fontFamily: 'sans-serif', fontSize: '18px', color: 'white', marginBottom: '5px' }}><strong>Major:</strong> {edu.major}</div>}
+              {edu.minor && <div style={{ fontFamily: 'sans-serif', fontSize: '18px', color: 'white', marginBottom: '10px' }}><strong>Minor:</strong> {edu.minor}</div>}
             </div>
           ))}
         </div>
@@ -363,9 +334,9 @@ export default function MainPage() {
         <h3>SOCIALS</h3>
         <div className="p5-socials-links">
           {Object.entries(personalInfo.socials).map(([key, link]) => (
-            <a key={key} href={link} className="p5-social-link" target="_blank" rel="noopener noreferrer">
+            <P5Button key={key} href={link} className="p5-social-link" variant="dark">
               {key.toUpperCase()}
-            </a>
+            </P5Button>
           ))}
         </div>
       </div>
@@ -381,9 +352,9 @@ export default function MainPage() {
             <img className="p5-modal-image" src={selectedHighlight.image} alt="Highlight" />
             <div className="p5-modal-date">{selectedHighlight.date}</div>
             <div className="p5-modal-desc">{selectedHighlight.description}</div>
-            <a href={selectedHighlight.link} target="_blank" rel="noopener noreferrer" className="p5-modal-link">
+            <P5Button href={selectedHighlight.link} className="p5-modal-link" variant="red">
               VIEW MORE &gt;
-            </a>
+            </P5Button>
           </div>
         )}
       </div>

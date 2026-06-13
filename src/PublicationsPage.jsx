@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { publications } from "./data/portfolioData";
+import P5Button from "./P5Button";
 
 export default function PublicationsPage() {
   const [selectedPub, setSelectedPub] = useState(null);
@@ -127,21 +128,7 @@ export default function PublicationsPage() {
 
         .p5-project-link-btn {
           align-self: flex-start;
-          background: white;
-          color: black;
-          font-family: 'Persona5Main';
           font-size: 20px;
-          letter-spacing: -1px;
-          padding: 5px 15px;
-          border: 2px solid black;
-          transform: skewX(-10deg);
-          text-decoration: none;
-          transition: background 0.2s, color 0.2s;
-        }
-
-        .p5-project-link-btn:hover {
-          background: #d92323;
-          color: white;
         }
 
         /* Modal Styles */
@@ -225,15 +212,14 @@ export default function PublicationsPage() {
               <div className="p5-project-date">{pub.date}</div>
               {pub.publisher && <div className="p5-project-publisher">{pub.publisher}</div>}
               <p className="p5-project-desc">{pub.description}</p>
-                <a 
-                  href={pub.link || "#"} 
-                  className="p5-project-link-btn" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  READ &gt;
-                </a>
+              <P5Button 
+                href={pub.link || "#"} 
+                className="p5-project-link-btn" 
+                onClick={(e) => e.stopPropagation()}
+                variant="dark"
+              >
+                READ &gt;
+              </P5Button>
             </div>
           </div>
         ))}
@@ -252,9 +238,9 @@ export default function PublicationsPage() {
             <div className="p5-modal-date">{selectedPub.date}</div>
             {selectedPub.publisher && <div className="p5-project-publisher" style={{ fontSize: '16px' }}>{selectedPub.publisher}</div>}
             <div className="p5-modal-desc">{selectedPub.description}</div>
-              <a href={selectedPub.link || "#"} target="_blank" rel="noopener noreferrer" className="p5-project-link-btn">
+              <P5Button href={selectedPub.link || "#"} className="p5-project-link-btn" variant="red">
                 READ PAPER &gt;
-              </a>
+              </P5Button>
           </div>
         )}
       </div>

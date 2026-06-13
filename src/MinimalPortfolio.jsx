@@ -1,0 +1,359 @@
+import React, { useState, useEffect } from 'react';
+import { personalInfo, highlights, experiences, projects, publications } from './data/portfolioData';
+
+export default function MinimalPortfolio({ onActivateP5 }) {
+  const [theme, setTheme] = useState('dark');
+
+  useEffect(() => {
+    document.body.className = `minimal-theme-${theme}`;
+    return () => {
+      document.body.className = '';
+    };
+  }, [theme]);
+
+  const toggleTheme = () => setTheme(t => t === 'light' ? 'dark' : 'light');
+
+  return (
+    <div className="minimal-container">
+      <nav className="minimal-nav">
+        <div className="minimal-nav-left">
+          <button className="minimal-btn" onClick={toggleTheme}>
+            {theme === 'light' ? 'DARK MODE' : 'LIGHT MODE'}
+          </button>
+        </div>
+        <div className="minimal-nav-right">
+          <button className="minimal-btn easter-egg-btn" onClick={onActivateP5}>
+            P5
+          </button>
+        </div>
+      </nav>
+
+      <header className="minimal-header">
+        <h1>{personalInfo.name}</h1>
+        <h2>{personalInfo.title}</h2>
+        <p className="minimal-bio">{personalInfo.about}</p>
+        <div className="minimal-socials">
+          {Object.entries(personalInfo.socials).map(([key, link]) => (
+            <a key={key} href={link} target="_blank" rel="noopener noreferrer">
+              {key}
+            </a>
+          ))}
+        </div>
+      </header>
+
+      <section className="minimal-section">
+        <h3>RECENT HIGHLIGHTS</h3>
+        <div className="minimal-scroll-container">
+          {highlights.map(hl => (
+            <div key={hl.id} className="minimal-card minimal-scroll-card">
+              {hl.image && <img src={hl.image} alt="Highlight" className="minimal-card-image" />}
+              <div className="minimal-card-header">
+                <span>{hl.date}</span>
+              </div>
+              <p>{hl.description}</p>
+              {hl.link && <a href={hl.link} target="_blank" rel="noopener noreferrer">VIEW MORE</a>}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="minimal-section">
+        <h3>EDUCATION</h3>
+        <div className="minimal-list">
+          {personalInfo.educationList?.map((edu, idx) => (
+            <div key={idx} className="minimal-card">
+              <div className="minimal-card-header">
+                <h4>{edu.degree} @ {edu.school}</h4>
+                <span>{edu.date}</span>
+              </div>
+              {edu.major && <p style={{ margin: '0 0 0.5rem 0' }}><strong>Major:</strong> {edu.major}</p>}
+              {edu.minor && <p style={{ margin: '0 0 1.5rem 0' }}><strong>Minor:</strong> {edu.minor}</p>}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="minimal-section">
+        <h3>EXPERIENCE</h3>
+        <div className="minimal-list">
+          {experiences.map(exp => (
+            <div key={exp.id} className="minimal-card">
+              <div className="minimal-card-header">
+                <h4>{exp.role} @ {exp.company}</h4>
+                <span>{exp.date}</span>
+              </div>
+              <p>{exp.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="minimal-section">
+        <h3>PROJECTS</h3>
+        <div className="minimal-grid">
+          {projects.map(proj => (
+            <div key={proj.id} className="minimal-card">
+              {proj.image && <img src={proj.image} alt={proj.title} className="minimal-card-image" />}
+              <h4>{proj.title}</h4>
+              <p>{proj.description}</p>
+              {proj.link && <a href={proj.link} target="_blank" rel="noopener noreferrer">VIEW PROJECT</a>}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="minimal-section">
+        <h3>PUBLICATIONS</h3>
+        <div className="minimal-grid">
+          {publications.map(pub => (
+            <div key={pub.id} className="minimal-card">
+              {pub.image && <img src={pub.image} alt={pub.title} className="minimal-card-image" />}
+              <h4>{pub.title}</h4>
+              <p>{pub.description}</p>
+              {pub.link && <a href={pub.link} target="_blank" rel="noopener noreferrer">READ PAPER</a>}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <style>{`
+        body.minimal-theme-light {
+          --bg-color: #f9f9f9;
+          --text-color: #111111;
+          --border-color: #e0e0e0;
+          --hover-color: #ffffff;
+          --secondary-text: #666666;
+        }
+        body.minimal-theme-dark {
+          --bg-color: #111111;
+          --text-color: #f9f9f9;
+          --border-color: #333333;
+          --hover-color: #1a1a1a;
+          --secondary-text: #aaaaaa;
+        }
+        
+        .minimal-container {
+          background-color: var(--bg-color);
+          color: var(--text-color);
+          min-height: 100vh;
+          font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+          padding: 2rem 10%;
+          transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .minimal-nav {
+          display: flex;
+          justify-content: space-between;
+          padding-bottom: 1.5rem;
+          border-bottom: 1px solid var(--border-color);
+          margin-bottom: 4rem;
+        }
+        
+        .minimal-btn {
+          background: none;
+          border: 1px solid var(--text-color);
+          color: var(--text-color);
+          padding: 0.5rem 1rem;
+          cursor: pointer;
+          font-size: 0.85rem;
+          font-weight: 500;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          transition: all 0.2s ease;
+        }
+        
+        .minimal-btn:hover {
+          background: var(--text-color);
+          color: var(--bg-color);
+        }
+        
+        .easter-egg-btn {
+          border-color: transparent;
+          opacity: 0.2;
+          font-weight: bold;
+        }
+        
+        .easter-egg-btn:hover {
+          background: #d92323;
+          color: white;
+          border-color: #d92323;
+          opacity: 1;
+          transform: scale(1.1) rotate(-5deg);
+        }
+        
+        .minimal-header {
+          margin-bottom: 5rem;
+          max-width: 800px;
+        }
+        
+        .minimal-header h1 {
+          font-size: 3.5rem;
+          margin: 0 0 0.5rem 0;
+          font-weight: 800;
+          letter-spacing: -2px;
+        }
+        
+        .minimal-header h2 {
+          font-size: 1.5rem;
+          font-weight: 400;
+          margin: 0 0 1.5rem 0;
+          color: var(--secondary-text);
+        }
+        
+        .minimal-bio {
+          font-size: 1.1rem;
+          line-height: 1.6;
+          margin-bottom: 2rem;
+          color: var(--secondary-text);
+        }
+
+        .minimal-socials {
+          display: flex;
+          gap: 1.5rem;
+        }
+
+        .minimal-socials a {
+          color: var(--text-color);
+          text-decoration: none;
+          text-transform: uppercase;
+          font-size: 0.9rem;
+          font-weight: 600;
+          letter-spacing: 1px;
+          border-bottom: 1px solid transparent;
+          transition: border-color 0.2s;
+        }
+
+        .minimal-socials a:hover {
+          border-color: var(--text-color);
+        }
+        
+        .minimal-section {
+          margin-bottom: 5rem;
+        }
+        
+        .minimal-section h3 {
+          font-size: 1rem;
+          text-transform: uppercase;
+          letter-spacing: 3px;
+          border-bottom: 1px solid var(--border-color);
+          padding-bottom: 1rem;
+          margin-bottom: 2rem;
+          color: var(--secondary-text);
+        }
+        
+        .minimal-list, .minimal-grid {
+          display: grid;
+          gap: 2rem;
+        }
+        
+        .minimal-grid {
+          grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        }
+
+        .minimal-scroll-container {
+          display: flex;
+          overflow-x: auto;
+          gap: 2rem;
+          padding-bottom: 1.5rem;
+          scroll-snap-type: x mandatory;
+          -webkit-overflow-scrolling: touch;
+        }
+
+        .minimal-scroll-container::-webkit-scrollbar {
+          height: 6px;
+        }
+        
+        .minimal-scroll-container::-webkit-scrollbar-track {
+          background: var(--bg-color);
+        }
+        
+        .minimal-scroll-container::-webkit-scrollbar-thumb {
+          background: var(--border-color);
+          border-radius: 4px;
+        }
+
+        .minimal-scroll-container::-webkit-scrollbar-thumb:hover {
+          background: var(--secondary-text);
+        }
+
+        .minimal-scroll-card {
+          flex: 0 0 350px;
+          scroll-snap-align: start;
+        }
+        
+        .minimal-card {
+          padding: 2rem;
+          border: 1px solid var(--border-color);
+          transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+          background-color: var(--hover-color);
+          display: flex;
+          flex-direction: column;
+        }
+        
+        .minimal-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .minimal-theme-dark .minimal-card:hover {
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .minimal-card-image {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+          margin-bottom: 1.5rem;
+          border-radius: 4px;
+          border: 1px solid var(--border-color);
+        }
+        
+        .minimal-card-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: baseline;
+          margin-bottom: 1rem;
+          flex-wrap: wrap;
+          gap: 1rem;
+        }
+        
+        .minimal-card h4 {
+          margin: 0;
+          font-size: 1.2rem;
+          font-weight: 600;
+        }
+        
+        .minimal-card span {
+          font-size: 0.9rem;
+          color: var(--secondary-text);
+        }
+        
+        .minimal-card p {
+          margin: 0 0 1.5rem 0;
+          font-size: 1rem;
+          line-height: 1.6;
+          color: var(--secondary-text);
+        }
+        
+        .minimal-card a {
+          display: inline-block;
+          color: var(--text-color);
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 0.85rem;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          border-bottom: 1px solid var(--text-color);
+          padding-bottom: 2px;
+          transition: opacity 0.2s;
+          margin-top: auto;
+          align-self: flex-start;
+        }
+
+        .minimal-card a:hover {
+          opacity: 0.6;
+        }
+      `}</style>
+    </div>
+  );
+}

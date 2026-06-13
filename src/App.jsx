@@ -239,10 +239,10 @@ export default function App() {
           bottom: '20px',
           right: '20px',
           zIndex: 9999,
-          fontSize: '24px'
+          fontSize: '24px',
         }}
       >
-        EXIT METAVERSE
+        <span style={{letterSpacing: '-5px', wordSpacing: '12px'}}>EXIT METAVERSE</span>
       </P5Button>
       <div className="site-content-layer">
         <AnimatedRoutes />

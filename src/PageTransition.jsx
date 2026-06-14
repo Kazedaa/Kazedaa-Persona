@@ -59,8 +59,8 @@ function CombinedTransition() {
             transformOrigin: "top",
             pointerEvents: "none",
           }}
-          initial={{ y: -1200, opacity: 1 }}
-          animate={{ y: [-1200, 0, 0, 1200] }}
+          initial={{ y: "-150vh", opacity: 1 }}
+          animate={{ y: ["-150vh", "0vh", "0vh", "150vh"], opacity: [1, 1, 1, 0] }}
           transition={{
             duration: 0.56,
             delay: stripe.delay,

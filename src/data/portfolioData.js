@@ -19,8 +19,8 @@ import undiveOverview from '../assets/undive-overview.png';
 
 export const personalInfo = {
   name: "Hemang J Jamadagni",
-  education: "MSCS @ University California of San Diego(UCSD)",
-  about: "I am an Applied AI and Computer Vision Researcher with a rigorous background in Systems Engineering. I am also an avid open source enthusiasts, open for a chat or collaborate on interesting projects.",
+  education: "MSCS @ University of California, San Diego (UCSD)",
+  about: "I am an Applied AI and Computer Vision Researcher with a rigorous background in Systems Engineering. I am also an avid open-source enthusiast, open to chatting or collaborating on interesting projects.",
   socials: {
     email: "mailto:hemangjamadagni@gmail.com",
     linkedin: "https://www.linkedin.com/in/hemangjamadagni",
@@ -62,7 +62,7 @@ export const highlights = [
   {
 
     image: echoNews,
-    description: "Developed eBAF, a kernel-level eBPF Ad Firewall that received a shout-out from eBPF Foundation Leader, Bill Mulligan in his newsletter Echo News.",
+    description: "Developed eBAF, a kernel-level eBPF Ad Firewall that received a shout-out from eBPF Foundation Leader Bill Mulligan in his newsletter Echo News.",
     date: "July 2025",
     link: "https://www.linkedin.com/pulse/echo-news-85-bill-mulligan-jcsgf/"
   },
@@ -70,16 +70,16 @@ export const highlights = [
 
     image: undivePoster,
     description: "Co-Authored UnDIVE: Generalized Underwater Video Enhancement using Generative Priors, accepted to WACV 2025, and presented at Tucson, USA.",
-    date: "July 2025",
+    date: "March 2025",
     link: "https://openaccess.thecvf.com/content/WACV2025/html/Srinath_UnDIVE_Generalized_Underwater_Video_Enhancement_using_Generative_Priors_WACV_2025_paper.html"
   },
-  {
+  // {
 
-    image: sswc,
-    description: "Authored HARQ Soft Combining Using Bidirectional LSTMs, accepted and presented at SSWC 2024.",
-    date: "July 2025",
-    link: "https://link.springer.com/chapter/10.1007/978-981-96-1348-9_9"
-  },
+  //   image: sswc,
+  //   description: "Authored HARQ Soft Combining Using Bidirectional LSTMs, accepted and presented at SSWC 2024.",
+  //   date: "Apr 2025",
+  //   link: "https://link.springer.com/chapter/10.1007/978-981-96-1348-9_9"
+  // },
 ];
 
 export const experiences = [
@@ -88,7 +88,7 @@ export const experiences = [
     company: "National Institute of Technology Karnataka",
     role: "Undergraduate Research Assistant",
     dateRange: "Feb 2025 - May 2026",
-    description: "Working on Medical Image Segmentation under the guidance of Dr Jeny Rajan. Manuscript under review at the Journal of Engineering Applications of Artificial Intelligence (EAAI)",
+    description: "Working on Medical Image Segmentation under the guidance of Dr Jeny Rajan. Manuscript under review at the Journal of Engineering Applications of Artificial Intelligence (EAAI).",
     highlights: [
     ]
   },
@@ -97,14 +97,14 @@ export const experiences = [
     company: "Indian Institute of Science (IISc)",
     role: "Undergraduate Research Assistant",
     dateRange: "May 2025 - Sept 2025",
-    description: "Designed and developed MANTA, a physics-informed framework for underwater object tracking that integrates representation learning with tracking design to solve the challenges of wavelength-dependent attenuation and scattering in underwater environments. Translating mathematical optical models into robust neural network architectures ultimately strengthened my expertise in merging theoretical physics with applied, state-of-the-art computer vision. This experience deepened my understanding of building efficient, real-time AI by combining physics-informed machine learning with foundational computer science concepts to optimize models for resource-constrained environments",
+    description: "Designed and developed MANTA, a physics-informed framework for underwater object tracking that integrates representation learning with tracking design to solve the challenges of wavelength-dependent attenuation and scattering in underwater environments. Translating mathematical optical models into robust neural network architectures ultimately strengthened my expertise in merging theoretical physics with applied, state-of-the-art computer vision. This experience deepened my understanding of building efficient, real-time AI by combining physics-informed machine learning with foundational computer science concepts to optimize models for resource-constrained environments.",
     highlights: [
       "Authored \"MANTA: Physics-Informed Generalized Underwater Object Tracking,\" which was accepted for publication at WACV 2026.",
       "Architected a dual-positive contrastive learning strategy that couples temporal consistency with Beer-Lambert augmentations, yielding feature representations that are highly robust to both temporal and underwater spatial distortions.",
       "Engineered a multi-stage pipeline augmenting motion-based tracking with a physics-informed secondary association algorithm. This integrated geometric consistency and appearance similarity to successfully re-identify targets even under severe occlusion and drift.",
       "Designed and integrated a graph-based tracking algorithm, leveraging fundamental data structures to significantly reduce computational overhead compared to standard deep learning based tracking methods.",
       "Formulated and introduced novel evaluation metrics, including Center-Scale Consistency (CSC) and Geometric Alignment Score (GAS), to rigorously assess geometric fidelity beyond standard IoU metrics.",
-      "Outperformed existing baselines by 6% in Success AUC and established new efficiency benchmarks by achieving an inference speed of 37 FPS while halving the model size(45M) compared to other state-of-the-art methods."
+      "Outperformed existing baselines by 6% in Success AUC and established new efficiency benchmarks by achieving an inference speed of 37 FPS while halving the model size (45M) compared to other state-of-the-art methods."
     ]
   },
   {
@@ -127,7 +127,7 @@ export const experiences = [
       "Automated deployment by integrating the service into the company's CI/CD pipeline using Terraform. Provisioned secure AWS infrastructure and managed Cloudflare certificates to ensure the internal tool remained strictly private and isolated.",
       "Integrated Agentic AI to automatically convert rough user inputs into structured bug titles and descriptions, significantly improving issue tracking accuracy.",
       "Implemented a custom Stale-While-Revalidate (SWR) caching strategy from scratch to optimize data retrieval for dynamic fields (like tags and assignees), effectively reducing the extension's UI latency from 2 seconds to under 100ms.",
-      "Engineered the extension to automatically capture critical page state context, including console logs, network requests, browser/OS info, and area-selected screenshots and format them directly into the team's Notion task tracker."
+      "Engineered the extension to automatically capture critical page state context (including console logs, network requests, browser/OS info, and area-selected screenshots) and format it directly into the team's Notion task tracker."
     ]
   },
   {
@@ -144,13 +144,12 @@ export const experiences = [
     company: "Indian Institute of Science (IISc)",
     role: "Undergraduate Research Assistant",
     dateRange: "Apr 2024 - July 2024",
-    description: "Designed and developed an internal product, end-to-end, that streamlined bug reporting across the engineering pipeline. This required the translation of high-level user needs into a reliable, production-ready technical architecture. This role helped me bridge the gap between theoretical computer science and practical product development.",
+    description: "Collaborated with Dr. Prathosh A. P. to tackle the complex challenges of enhancing underwater media, specifically addressing the lack of ground-truth data and the inability of single-image methods to maintain temporal consistency. This experience served as my introduction to formal, rigorous academic research.",
     highlights: [
-      "Architected and developed a full-stack, intelligent bug-tracking browser extension backed by a FastAPI and AWS backend to eliminate manual reporting friction.",
-      "Automated deployment by integrating the service into the company's CI/CD pipeline using Terraform. Provisioned secure AWS infrastructure and managed Cloudflare certificates to ensure the internal tool remained strictly private and isolated.",
-      "Integrated Agentic AI to automatically convert rough user inputs into structured bug titles and descriptions, significantly improving issue tracking accuracy.",
-      "Implemented a custom Stale-While-Revalidate (SWR) caching strategy from scratch to optimize data retrieval for dynamic fields (like tags and assignees), effectively reducing the extension's UI latency from 2 seconds to under 100ms.",
-      "Engineered the extension to automatically capture critical page state context, including console logs, network requests, browser/OS info, and area-selected screenshots and format them directly into the team's Notion task tracker."
+      "Co-authored \"UnDIVE: Generalized Underwater Video Enhancement Using Generative Priors,\" which was accepted and published at WACV 2025.",
+      "Developed the framework by coupling a downstreamed Denoising Diffusion Probabilistic Model (DDPM) with a classical physics-based imaging model for spatial enhancement.",
+      "Implemented an unsupervised temporal consistency loss, establishing a new state-of-the-art performance benchmark and proving the model's ability to generalize across various water types.",
+      "Presented the research at the WACV2025 conference in Tucson, Arizona, earning praise from industry experts for contributing to the solution of maritime and environmental challenges."
     ]
   },
 ];
@@ -160,7 +159,7 @@ export const projects = [
 
     title: "eBAF: eBPF Based Ad Firewall",
     image: ebaf,
-    description: "eBAF is a high-performance, kernel-level network adblocker utilizing eBPF/XDP. Engineered to be a robust packet filtering system that bypasses the standard Linux networking stack to inspect and drop ad-serving traffic in real-time with near-zero latency. It handles the shifting ad domains by integrating a dynamic DNS resolution mechanism to continuously update IP blacklists, and includes an interactive web dashboard for live traffic monitoring. This project allowed me to explore low-level systems architecture and network protocols, ultimately earning a shout-out from eBPF Foundation Leader, Bill Mulligan in his newsletter Echo News.",
+    description: "eBAF is a high-performance, kernel-level network adblocker utilizing eBPF/XDP. It is engineered to be a robust packet filtering system that bypasses the standard Linux networking stack to inspect and drop ad-serving traffic in real-time with near-zero latency. It handles the shifting ad domains by integrating a dynamic DNS resolution mechanism to continuously update IP blacklists, and includes an interactive web dashboard for live traffic monitoring. This project allowed me to explore low-level systems architecture and network protocols, ultimately earning a shout-out from eBPF Foundation Leader, Bill Mulligan in his newsletter Echo News.",
     date: "Apr 2025",
     link: "https://github.com/Kazedaa/eBAF"
   },
@@ -176,7 +175,7 @@ export const projects = [
 
     title: "MANTA: Physics-Informed Generalized Underwater Object Tracking",
     image: mantaShowcase,
-    description: "MANTA is a state-of-the-art, physics-informed machine learning framework designed to solve severe aquatic visual distortions in underwater object tracking. Implements a novel dual-positive contrastive learning pipeline integrating Beer-Lambert optical priors, and a multi-stage tracking architecture that leverages geometric consistency to resolve complex occlusion and drift challenges. The framework achieves state-of-the-art performance across four major benchmarks (WebUOT-1M, UOT32, UTB180, UWCOT220), improving Success AUC by 6% while ensuring real-time efficiency, and culminated in a co-first author publication accepted at WACV 2026.",
+    description: "MANTA is a state-of-the-art, physics-informed machine learning framework designed to solve severe aquatic visual distortions in underwater object tracking. It implements a novel dual-positive contrastive learning pipeline integrating Beer-Lambert optical priors, and a multi-stage tracking architecture that leverages geometric consistency to resolve complex occlusion and drift challenges. The framework achieves state-of-the-art performance across four major benchmarks (WebUOT-1M, UOT32, UTB180, UWCOT220), improving Success AUC by 6% while ensuring real-time efficiency, and culminated in a co-first author publication accepted at WACV 2026.",
     date: "May 2025",
     link: "https://github.com/Kazedaa/MANTA"
   },
@@ -200,7 +199,7 @@ export const projects = [
 
     title: "HueShift: Breathing Life into Every Frame",
     image: hueshift,
-    description: "HueShift is an end-to-end video colorization pipeline leveraging diffusion models, PyTorch, and OpenCV to automatically colorize grayscale video sequences. Implements the core machine learning infrastructure to perform frame-wise colorization, encompassing data preprocessing, model training and inference, and multi-resolution post-processing utilities. It tackles complex visual artifacts by implementing temporal consistency optimizations, keyframe detection, and deflickering techniques. This project culminated in a public demonstration at the NITK Executive Project Expo.",
+    description: "HueShift is an end-to-end video colorization pipeline leveraging diffusion models, PyTorch, and OpenCV to automatically colorize grayscale video sequences. It implements the core machine learning infrastructure to perform frame-wise colorization, encompassing data preprocessing, model training and inference, and multi-resolution post-processing utilities. It tackles complex visual artifacts by implementing temporal consistency optimizations, keyframe detection, and deflickering techniques. This project culminated in a public demonstration at the NITK Executive Project Expo.",
     date: "Jun 2024",
     link: "https://github.com/Kazedaa/Hueshift-Video-Coloring"
   },
@@ -216,7 +215,7 @@ export const projects = [
 
     title: "UnDIVE: Generalized Underwater Video Enhancement Using Generative Priors",
     image: undiveShowcase,
-    description: "UnDIVE is a generalized machine learning framework leveraging generative priors to solve severe aquatic visual distortions in underwater video media. Tackles the critical lack of ground-truth data and the inherent temporal inconsistencies of traditional single-image enhancement methods by designing a robust pipeline that ensures stable, high-fidelity frame sequences across diverse underwater environments. This research successfully bridged theoretical generative models with practical video enhancement challenges, culminating in a co-authored publication accepted at WACV 2025.",
+    description: "UnDIVE is a generalized machine learning framework leveraging generative priors to solve severe aquatic visual distortions in underwater video media. It tackles the critical lack of ground-truth data and the inherent temporal inconsistencies of traditional single-image enhancement methods by designing a robust pipeline that ensures stable, high-fidelity frame sequences across diverse underwater environments. This research successfully bridged theoretical generative models with practical video enhancement challenges, culminating in a co-authored publication accepted at WACV 2025.",
     date: "Apr 2024",
     link: "https://github.com/suhas-srinath/undive"
   },
@@ -267,7 +266,7 @@ export const publications = [
   {
 
     title: "HARQ Soft Combining Using Bidirectional LSTMs",
-    publisher: "Smart Innovation, Systems and Technologies ((SIST,volume 433)), p 109-122",
+    publisher: "Smart Innovation, Systems and Technologies ((SIST,volume 433)), pp. 109-122",
     image: harq,
     description: "Hybrid Automatic Repeat reQuest is used in modern wireless data communication to integrate both Automatic Repeat reQuest and high-rate Forward Error Correction mechanisms to enhance the reliability of data transmission. Unlike traditional ARQ, where an error-ridden frame is discarded upon reception, HARQ temporarily stores the erroneous frame in a buffer. When the re-transmission of the same frame occurs, these two frames are combined to generate a new frame, trying to minimize errors. This is HARQ with Soft Combining. Existing methods like Chase Combining (Type-I) and Incremental Redundancy (Type-II and Type-III) implement Log-Likelihood Ratio and Maximum Ratio Combining to combine two erroneous frames. This paper uses a Bidirectional Long Short-Term Memory model to combine two frames with high channel noise errors. This paper introduces the BiLSTM model, which aims to reduce the Bit Error Rate and provides an approach for integrating this model into the existing HARQ structure.",
     date: "Apr 18, 2025",
@@ -276,7 +275,7 @@ export const publications = [
   {
 
     title: "UnDIVE: Generalized Underwater Video Enhancement using Generative Priors",
-    publisher: "Proceedings of the Winter Conference on Applications of Computer Vision (WACV), 2025, pp. 8983-8994",
+    publisher: "Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), 2025, pp. 8983-8994",
     image: undiveOverview,
     description: "With the rise of marine exploration, underwater imaging has gained significant attention as a research topic. Underwater video enhancement has become crucial for real-time computer vision tasks in marine exploration. However, most existing methods focus on enhancing individual frames and neglect video temporal dynamics, leading to visually poor enhancements. Furthermore, the lack of ground-truth references limits the use of abundant available underwater video data in many applications. To address these issues, we propose a two-stage framework for enhancing underwater videos. The first stage uses a denoising diffusion probabilistic model to learn a generative prior from unlabeled data, capturing robust and descriptive feature representations. In the second stage, this prior is incorporated into a physics-based image formulation for spatial enhancement, while also enforcing temporal consistency between video frames. Our method enables real-time and computationally-efficient processing of high-resolution underwater videos at lower resolutions, and offers efficient enhancement in the presence of diverse water-types. Extensive experiments on four datasets show that our approach generalizes well and outperforms existing enhancement methods.",
     date: "Mar 3, 2025",

@@ -10,8 +10,8 @@ import P5Button from "./P5Button";
 const ITEMS = [
   { id: "main",         label: "MAIN",          page: "/",            fontSize: 90, offsetX: 0,  offsetY: 0,  skew: -6,  skewY: 8  },
   { id: "experience",   label: "EXPERIENCE",    page: "/experience",  fontSize: 70, offsetX: 30, offsetY: 20,  skew: -11, skewY: -6 },
-  { id: "projects",     label: "PROJECTS",      page: "/projects",    fontSize: 80, offsetX: 20,  offsetY: 15,  skew: 0, skewY: -4  },
   { id: "publications", label: "PUBLICATIONS",  page: "/publications",fontSize: 60, offsetX: 40, offsetY: 25,  skew: -3,  skewY: 5   },
+  { id: "projects",     label: "PROJECTS",      page: "/projects",    fontSize: 80, offsetX: 20,  offsetY: 15,  skew: 0, skewY: -4  },
 ];
 
 const CLIP_SHAPES = [
@@ -21,7 +21,7 @@ const CLIP_SHAPES = [
   () => "polygon(0% 15%, 90% 0%, 100% 90%, 92% 100%, 8% 95%)",
 ];
 
-const IMAGES = [imgMain, imgExperience, imgProjects, imgPublications];
+const IMAGES = [imgMain, imgExperience, imgPublications, imgProjects];
 
 export default function P5SideNav() {
   const [isOpen, setIsOpen] = useState(false);

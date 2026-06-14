@@ -95,6 +95,20 @@ export default function MinimalPortfolio({ onActivateP5 }) {
       </section>
 
       <section className="minimal-section">
+        <h3>PUBLICATIONS</h3>
+        <div className="minimal-grid">
+          {publications.map((pub, idx) => (
+            <div key={idx} className="minimal-card">
+              {pub.image && <img src={pub.image} alt={pub.title} className="minimal-card-image" />}
+              <h4>{pub.title}</h4>
+              <p>{pub.description}</p>
+              {pub.link && <a href={pub.link} target="_blank" rel="noopener noreferrer">READ PAPER</a>}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="minimal-section">
         <h3>PROJECTS</h3>
         <div className="minimal-grid">
           {projects.map((proj, idx) => (
@@ -108,19 +122,6 @@ export default function MinimalPortfolio({ onActivateP5 }) {
         </div>
       </section>
 
-      <section className="minimal-section">
-        <h3>PUBLICATIONS</h3>
-        <div className="minimal-grid">
-          {publications.map((pub, idx) => (
-            <div key={idx} className="minimal-card">
-              {pub.image && <img src={pub.image} alt={pub.title} className="minimal-card-image" />}
-              <h4>{pub.title}</h4>
-              <p>{pub.description}</p>
-              {pub.link && <a href={pub.link} target="_blank" rel="noopener noreferrer">READ PAPER</a>}
-            </div>
-          ))}
-        </div>
-      </section>
 
       <style>{`
         body.minimal-theme-light {

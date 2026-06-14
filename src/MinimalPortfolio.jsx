@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { personalInfo, highlights, groupedExperiences, projects, publications } from './data/portfolioData';
 import p5Logo from './assets/logo.webp';
 import profilePic from './assets/profile-picture.webp';

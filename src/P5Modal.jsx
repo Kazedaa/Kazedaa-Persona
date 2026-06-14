@@ -1,7 +1,5 @@
 import React from 'react';
 import P5Button from './P5Button';
-import { playSelectSound } from './utils/audio';
-
 export default function P5Modal({ isOpen, onClose, data, wide = false, linkText = "VIEW >" }) {
   if (!isOpen || !data) return null;
 

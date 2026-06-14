@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { personalInfo, highlights, experiences } from "./data/portfolioData";
 import profilePic from './assets/profile-picture.webp';
 import P5Button from "./P5Button";
+import { playSelectSound } from './utils/audio';
 
 export default function MainPage() {
   const [selectedHighlight, setSelectedHighlight] = useState(null);
@@ -528,7 +529,7 @@ export default function MainPage() {
         <h3>HIGHLIGHTS</h3>
         <div className="p5-highlights-grid">
           {highlights.map((hl, idx) => (
-            <div key={idx} className="p5-highlight-card-wrapper" onClick={() => setSelectedHighlight(hl)}>
+            <div key={idx} className="p5-highlight-card-wrapper" onClick={() => setSelectedHighlight(hl)} onMouseEnter={playSelectSound}>
               <div className="p5-highlight-card">
                 <img src={hl.image} alt="highlight" />
                 <div className="p5-highlight-info">
@@ -552,6 +553,7 @@ export default function MainPage() {
                   key={rIdx} 
                   className="p5-exp-role-node" 
                   onClick={() => navigate(`/experience#exp-${role.originalIdx}`)}
+                  onMouseEnter={playSelectSound}
                 >
                   <div className="p5-exp-role-title">{role.role}</div>
                   <div className="p5-exp-role-date">{role.dateRange}</div>
@@ -581,7 +583,7 @@ export default function MainPage() {
       >
         {selectedHighlight && (
           <div className="p5-modal-content" onClick={e => e.stopPropagation()}>
-            <button className="p5-modal-close" onClick={() => setSelectedHighlight(null)}>X</button>
+            <button className="p5-modal-close" onClick={() => setSelectedHighlight(null)} onMouseEnter={playSelectSound}>X</button>
             <img className="p5-modal-image" src={selectedHighlight.image} alt="Highlight" />
             <div className="p5-modal-date">{selectedHighlight.date}</div>
             <div className="p5-modal-desc">{selectedHighlight.description}</div>

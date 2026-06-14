@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { projects } from "./data/portfolioData";
 import P5Button from "./P5Button";
+import { playSelectSound } from './utils/audio';
 
 export default function ProjectsPage() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -257,7 +258,7 @@ export default function ProjectsPage() {
 
       <div className="p5-projects-grid">
         {projects.map((proj, idx) => (
-          <div key={idx} className="p5-project-card-wrapper" onClick={() => setSelectedProject(proj)}>
+          <div key={idx} className="p5-project-card-wrapper" onClick={() => setSelectedProject(proj)} onMouseEnter={playSelectSound}>
             <div className="p5-project-card">
               <img src={proj.image} alt={proj.title} className="p5-project-img" />
               <div className="p5-project-info">
@@ -285,7 +286,7 @@ export default function ProjectsPage() {
       >
         {selectedProject && (
           <div className="p5-modal-content" onClick={e => e.stopPropagation()}>
-            <button className="p5-modal-close" onClick={() => setSelectedProject(null)}>X</button>
+            <button className="p5-modal-close" onClick={() => setSelectedProject(null)} onMouseEnter={playSelectSound}>X</button>
             <img className="p5-modal-image" src={selectedProject.image} alt={selectedProject.title} />
             <div className="p5-project-title" style={{ fontSize: '40px' }}>{selectedProject.title}</div>
             <div className="p5-modal-date">{selectedProject.date}</div>

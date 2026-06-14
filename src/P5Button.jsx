@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { playSelectSound } from './utils/audio';
 
 export default function P5Button({ children, onClick, href, className = "", style = {}, variant = "dark" }) {
   const [isHovered, setIsHovered] = useState(false);
   const [animKey, setAnimKey] = useState(0);
 
   const handleMouseEnter = () => {
+    playSelectSound();
     setIsHovered(true);
     setAnimKey(k => k + 1);
   };

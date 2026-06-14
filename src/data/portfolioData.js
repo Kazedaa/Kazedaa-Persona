@@ -35,7 +35,7 @@ export const personalInfo = {
       major: "Computer Science"
     },
     {
-      degree: "Bachelor of Technology",
+      degree: "Bachelor of Technology, CSE",
       school: "National Institute of Technology Karnataka (NITK)",
       date: "2022 - 2026",
       major: "Computer Science and Engineering",
@@ -265,20 +265,20 @@ export const publications = [
   },
   {
 
-    title: "HARQ Soft Combining Using Bidirectional LSTMs",
-    publisher: "Smart Innovation, Systems and Technologies ((SIST,volume 433)), pp. 109-122",
-    image: harq,
-    description: "Hybrid Automatic Repeat reQuest is used in modern wireless data communication to integrate both Automatic Repeat reQuest and high-rate Forward Error Correction mechanisms to enhance the reliability of data transmission. Unlike traditional ARQ, where an error-ridden frame is discarded upon reception, HARQ temporarily stores the erroneous frame in a buffer. When the re-transmission of the same frame occurs, these two frames are combined to generate a new frame, trying to minimize errors. This is HARQ with Soft Combining. Existing methods like Chase Combining (Type-I) and Incremental Redundancy (Type-II and Type-III) implement Log-Likelihood Ratio and Maximum Ratio Combining to combine two erroneous frames. This paper uses a Bidirectional Long Short-Term Memory model to combine two frames with high channel noise errors. This paper introduces the BiLSTM model, which aims to reduce the Bit Error Rate and provides an approach for integrating this model into the existing HARQ structure.",
-    date: "Apr 18, 2025",
-    link: "https://link.springer.com/chapter/10.1007/978-981-96-1348-9_9"
-  },
-  {
-
     title: "UnDIVE: Generalized Underwater Video Enhancement using Generative Priors",
     publisher: "Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), 2025, pp. 8983-8994",
     image: undiveOverview,
     description: "With the rise of marine exploration, underwater imaging has gained significant attention as a research topic. Underwater video enhancement has become crucial for real-time computer vision tasks in marine exploration. However, most existing methods focus on enhancing individual frames and neglect video temporal dynamics, leading to visually poor enhancements. Furthermore, the lack of ground-truth references limits the use of abundant available underwater video data in many applications. To address these issues, we propose a two-stage framework for enhancing underwater videos. The first stage uses a denoising diffusion probabilistic model to learn a generative prior from unlabeled data, capturing robust and descriptive feature representations. In the second stage, this prior is incorporated into a physics-based image formulation for spatial enhancement, while also enforcing temporal consistency between video frames. Our method enables real-time and computationally-efficient processing of high-resolution underwater videos at lower resolutions, and offers efficient enhancement in the presence of diverse water-types. Extensive experiments on four datasets show that our approach generalizes well and outperforms existing enhancement methods.",
     date: "Mar 3, 2025",
     link: "https://openaccess.thecvf.com/content/WACV2025/html/Srinath_UnDIVE_Generalized_Underwater_Video_Enhancement_using_Generative_Priors_WACV_2025_paper.html"
+  },
+  {
+
+    title: "HARQ Soft Combining Using Bidirectional LSTMs",
+    publisher: "Smart Innovation, Systems and Technologies ((SIST,volume 433)), pp. 109-122",
+    image: harq,
+    description: "Hybrid Automatic Repeat reQuest is used in modern wireless data communication to integrate both Automatic Repeat reQuest and high-rate Forward Error Correction mechanisms to enhance the reliability of data transmission. Unlike traditional ARQ, where an error-ridden frame is discarded upon reception, HARQ temporarily stores the erroneous frame in a buffer. When the re-transmission of the same frame occurs, these two frames are combined to generate a new frame, trying to minimize errors. This is HARQ with Soft Combining. Existing methods like Chase Combining (Type-I) and Incremental Redundancy (Type-II and Type-III) implement Log-Likelihood Ratio and Maximum Ratio Combining to combine two erroneous frames. This paper uses a Bidirectional Long Short-Term Memory model to combine two frames with high channel noise errors. This paper introduces the BiLSTM model, which aims to reduce the Bit Error Rate and provides an approach for integrating this model into the existing HARQ structure.",
+    date: "Apr 18, 2025",
+    link: "https://link.springer.com/chapter/10.1007/978-981-96-1348-9_9"
   },
 ];

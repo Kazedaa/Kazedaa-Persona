@@ -3,6 +3,7 @@ import { personalInfo, highlights, experiences, projects, publications } from '.
 import p5Logo from './assets/logo.webp';
 import profilePic from './assets/profile-picture.webp';
 import { useScrollDirection } from './utils/useScrollDirection';
+import { playSelectSound } from './utils/audio';
 
 
 export default function MinimalPortfolio({ onActivateP5 }) {
@@ -37,7 +38,7 @@ export default function MinimalPortfolio({ onActivateP5 }) {
       </button>
 
       <div className={`easter-egg-container ${!isScrollVisible ? 'nav-hidden' : ''}`}>
-        <button className="easter-egg-btn" onClick={onActivateP5}>
+        <button className="easter-egg-btn" onClick={onActivateP5} onMouseEnter={playSelectSound}>
           <img src={p5Logo} alt="P5 Logo" />
         </button>
       </div>

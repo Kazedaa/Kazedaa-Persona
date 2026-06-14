@@ -13,6 +13,8 @@ import P5Button from './P5Button'
 import { useScrollDirection } from './utils/useScrollDirection'
 import './App.css'
 
+import { playSelectSound } from './utils/audio'
+
 const BGM_STATE_KEY = 'p5-bgm-enabled'
 const BGM_VOLUME_KEY = 'p5-bgm-volume'
 const DEFAULT_VOLUME = 1
@@ -150,6 +152,7 @@ function BackgroundMusic({ isScrollVisible }) {
           toggleMusic()
           e.currentTarget.blur()
         }}
+        onMouseEnter={playSelectSound}
         aria-label={isPlaying ? 'Disable background music' : 'Enable background music'}
       >
         {isPlaying ? 'BGM ON' : 'BGM OFF'}

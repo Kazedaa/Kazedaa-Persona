@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { publications } from "./data/portfolioData";
 import P5Button from "./P5Button";
+import { playSelectSound } from './utils/audio';
 
 export default function PublicationsPage() {
   const [selectedPub, setSelectedPub] = useState(null);
@@ -265,7 +266,7 @@ export default function PublicationsPage() {
 
       <div className="p5-projects-grid">
         {publications.map((pub, idx) => (
-          <div key={idx} className="p5-project-card-wrapper" onClick={() => setSelectedPub(pub)}>
+          <div key={idx} className="p5-project-card-wrapper" onClick={() => setSelectedPub(pub)} onMouseEnter={playSelectSound}>
             <div className="p5-project-card">
               <img src={pub.image} alt={pub.title} className="p5-project-img" />
               <div className="p5-project-info">
@@ -294,7 +295,7 @@ export default function PublicationsPage() {
       >
         {selectedPub && (
           <div className="p5-modal-content" onClick={e => e.stopPropagation()}>
-            <button className="p5-modal-close" onClick={() => setSelectedPub(null)}>X</button>
+            <button className="p5-modal-close" onClick={() => setSelectedPub(null)} onMouseEnter={playSelectSound}>X</button>
             <img className="p5-modal-image" src={selectedPub.image} alt={selectedPub.title} />
             <div className="p5-project-title" style={{ fontSize: '40px' }}>{selectedPub.title}</div>
             <div className="p5-modal-date">{selectedPub.date}</div>

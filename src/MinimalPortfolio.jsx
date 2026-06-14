@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { personalInfo, highlights, experiences, projects, publications } from './data/portfolioData';
-import p5Logo from './assets/logo.png';
-import profilePic from './assets/profile-picture.png';
+import p5Logo from './assets/logo.webp';
+import profilePic from './assets/profile-picture.webp';
 import { useScrollDirection } from './utils/useScrollDirection';
 
 

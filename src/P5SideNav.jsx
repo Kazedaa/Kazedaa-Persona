@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { playSelectSound } from "./utils/audio.js";
-import imgMain from "./assets/p5-protagonist-main.png";
-import imgExperience from "./assets/p5-protagonist-experience.png";
-import imgProjects from "./assets/p5-protagonist-projects.png";
-import imgPublications from "./assets/p5-protagonist-publications.png";
+import imgMain from "./assets/p5-protagonist-main.webp";
+import imgExperience from "./assets/p5-protagonist-experience.webp";
+import imgProjects from "./assets/p5-protagonist-projects.webp";
+import imgPublications from "./assets/p5-protagonist-publications.webp";
 import { useScrollDirection } from './utils/useScrollDirection';
 import P5Button from "./P5Button";
 

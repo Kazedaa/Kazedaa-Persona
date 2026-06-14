@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { personalInfo, highlights, experiences } from "./data/portfolioData";
-import profilePic from './assets/profile-picture.png';
+import profilePic from './assets/profile-picture.webp';
 import P5Button from "./P5Button";
 
 export default function MainPage() {

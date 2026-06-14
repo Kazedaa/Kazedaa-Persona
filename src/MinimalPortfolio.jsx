@@ -2,9 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { personalInfo, highlights, experiences, projects, publications } from './data/portfolioData';
 import p5Logo from './assets/logo.png';
 import profilePic from './assets/profile-picture.png';
+import { useScrollDirection } from './utils/useScrollDirection';
+
 
 export default function MinimalPortfolio({ onActivateP5 }) {
   const [theme, setTheme] = useState('dark');
+  const isScrollVisible = useScrollDirection();
 
   useEffect(() => {
     document.body.className = `minimal-theme-${theme}`;
@@ -17,11 +20,11 @@ export default function MinimalPortfolio({ onActivateP5 }) {
 
   return (
     <div className="minimal-container">
-      <button className="minimal-btn fixed-theme-btn" onClick={toggleTheme}>
+      <button className={`minimal-btn fixed-theme-btn ${!isScrollVisible ? 'nav-hidden' : ''}`} onClick={toggleTheme}>
         {theme === 'light' ? 'DARK MODE' : 'LIGHT MODE'}
       </button>
 
-      <div className="easter-egg-container">
+      <div className={`easter-egg-container ${!isScrollVisible ? 'nav-hidden' : ''}`}>
         <button className="easter-egg-btn" onClick={onActivateP5}>
           <img src={p5Logo} alt="P5 Logo" />
         </button>
@@ -153,6 +156,12 @@ export default function MinimalPortfolio({ onActivateP5 }) {
           top: 30px;
           left: 30px;
           z-index: 1000;
+          transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s, background 0.2s ease, color 0.2s ease;
+        }
+        .fixed-theme-btn.nav-hidden {
+          transform: translateY(-150%);
+          opacity: 0;
+          pointer-events: none;
         }
         
         .minimal-btn {
@@ -165,7 +174,6 @@ export default function MinimalPortfolio({ onActivateP5 }) {
           font-weight: 500;
           letter-spacing: 1px;
           text-transform: uppercase;
-          transition: all 0.2s ease;
         }
         
         .minimal-btn:hover {
@@ -182,7 +190,12 @@ export default function MinimalPortfolio({ onActivateP5 }) {
           flex-direction: column;
           align-items: center;
           gap: 0.5rem;
-          animation: float 3s ease-in-out infinite;
+          transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s;
+        }
+        .easter-egg-container.nav-hidden {
+          transform: translateY(-150%);
+          opacity: 0;
+          pointer-events: none;
         }
 
         @keyframes float {
@@ -208,6 +221,7 @@ export default function MinimalPortfolio({ onActivateP5 }) {
           display: flex;
           align-items: center;
           justify-content: center;
+          animation: float 3s ease-in-out infinite;
         }
         
         .easter-egg-btn img {
@@ -273,7 +287,7 @@ export default function MinimalPortfolio({ onActivateP5 }) {
         .minimal-header h2 {
           font-size: 1.5rem;
           font-weight: 400;
-          margin: 0 0 1.5rem 0;
+          margin: 0;
           color: var(--secondary-text);
         }
         

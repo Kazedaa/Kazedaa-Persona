@@ -19,22 +19,30 @@ export default function PublicationsPage() {
 
         .p5-header-skew {
           background: #d92323;
-          display: inline-block;
+          display: block;
           padding: 15px 40px;
           transform: skewX(-15deg);
           box-shadow: 8px 8px 0px rgba(0,0,0,0.8);
           border: 3px solid black;
           margin-left: 20px;
-          align-self: flex-start;
+          width: calc(100% - 30px);
+          max-width: 1200px;
+          box-sizing: border-box;
         }
 
         .p5-header-skew > * {
           transform: skewX(15deg);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          width: 100%;
         }
 
         .p5-title {
           font-family: 'Persona5Main';
-          font-size: 64px;
+          font-size: clamp(22px, 6vw, 72px);
           letter-spacing: -2px;
           word-spacing: 8px;
           line-height: 1;
@@ -209,12 +217,10 @@ export default function PublicationsPage() {
             padding: 70px 20px 30px 20px;
             gap: 25px;
           }
-          .p5-title {
-            font-size: 40px;
-          }
           .p5-header-skew {
             padding: 10px 24px;
             margin-left: 10px;
+            width: calc(100% - 15px);
           }
           .p5-projects-grid {
             grid-template-columns: 1fr;
@@ -235,11 +241,12 @@ export default function PublicationsPage() {
             gap: 20px;
           }
           .p5-title {
-            font-size: 32px;
+            font-size: 7vw;
           }
           .p5-header-skew {
             padding: 8px 16px;
             margin-left: 5px;
+            width: calc(100% - 10px);
           }
           .p5-project-info {
             padding: 15px;

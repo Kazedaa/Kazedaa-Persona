@@ -10,6 +10,7 @@ import PublicationsPage from './PublicationsPage'
 import P5SideNav from './P5SideNav'
 import MinimalPortfolio from './MinimalPortfolio'
 import P5Button from './P5Button'
+import { useScrollDirection } from './utils/useScrollDirection'
 import './App.css'
 
 const BGM_STATE_KEY = 'p5-bgm-enabled'
@@ -17,7 +18,7 @@ const BGM_VOLUME_KEY = 'p5-bgm-volume'
 const DEFAULT_VOLUME = 1
 const FADE_MS = 450
 
-function BackgroundMusic() {
+function BackgroundMusic({ isScrollVisible }) {
   const audioRef = useRef(null)
   const fadeRafRef = useRef(null)
   const autoStartRef = useRef(false)
@@ -140,7 +141,7 @@ function BackgroundMusic() {
   useEffect(() => () => stopFade(), [])
 
   return (
-    <div className="bgm-panel">
+    <div className={`bgm-panel ${!isScrollVisible ? 'nav-hidden' : ''}`}>
       <audio ref={audioRef} loop preload="none" src="/audio/background.mp3" />
       <button
         className={`bgm-toggle${isPlaying ? ' on' : ''}`}
@@ -213,6 +214,7 @@ function AnimatedRoutes() {
 export default function App() {
   const navigate = useNavigate();
   const [isP5Theme, setIsP5Theme] = useState(false);
+  const isScrollVisible = useScrollDirection();
 
   if (!isP5Theme) {
     return <MinimalPortfolio onActivateP5={() => {
@@ -225,14 +227,14 @@ export default function App() {
     <>
       <P5SideNav />
       <P5Button
-        className="exit-metaverse-btn"
+        className={`exit-metaverse-btn ${!isScrollVisible ? 'nav-hidden' : ''}`}
         variant="dark"
         onClick={() => setIsP5Theme(false)}
       >
         <span style={{letterSpacing: '-5px', wordSpacing: '12px'}}>EXIT METAVERSE</span>
       </P5Button>
       <AnimatedRoutes />
-      <BackgroundMusic />
+      <BackgroundMusic isScrollVisible={isScrollVisible} />
     </>
   )
 }

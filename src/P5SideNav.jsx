@@ -5,6 +5,7 @@ import imgMain from "./assets/p5-protagonist-main.png";
 import imgExperience from "./assets/p5-protagonist-experience.png";
 import imgProjects from "./assets/p5-protagonist-projects.png";
 import imgPublications from "./assets/p5-protagonist-publications.png";
+import { useScrollDirection } from './utils/useScrollDirection';
 import P5Button from "./P5Button";
 
 const ITEMS = [
@@ -25,6 +26,7 @@ const IMAGES = [imgMain, imgExperience, imgPublications, imgProjects];
 
 export default function P5SideNav() {
   const [isOpen, setIsOpen] = useState(false);
+  const isScrollVisible = useScrollDirection();
   const location = useLocation();
   const navigate = useNavigate();
   const [winWidth, setWinWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
@@ -87,6 +89,12 @@ export default function P5SideNav() {
           left: 20px;
           z-index: 1000;
           font-size: 32px;
+          transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s !important;
+        }
+        .p5-sidenav-trigger.nav-hidden {
+          transform: translateX(-150%) !important;
+          opacity: 0 !important;
+          pointer-events: none !important;
         }
 
         .p5-sidenav-overlay {
@@ -349,7 +357,7 @@ export default function P5SideNav() {
 
       {/* Button to toggle navigation */}
       <P5Button 
-        className="p5-sidenav-trigger" 
+        className={`p5-sidenav-trigger ${!isScrollVisible && !isOpen ? 'nav-hidden' : ''}`} 
         onClick={() => setIsOpen(!isOpen)}
         variant="dark"
       >

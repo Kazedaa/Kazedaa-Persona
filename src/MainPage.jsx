@@ -22,7 +22,7 @@ export default function MainPage() {
 
         .p5-hero-section {
           display: flex;
-          align-items: flex-start;
+          align-items: center;
           gap: 40px;
           max-width: 1200px;
         }
@@ -47,36 +47,50 @@ export default function MainPage() {
           display: flex;
           flex-direction: column;
           align-items: flex-start;
+          min-width: 0;
         }
 
         @media (max-width: 900px) {
+          .p5-page-wrapper {
+            padding: 80px 30px 40px 60px;
+          }
           .p5-hero-section {
-            flex-direction: column;
+            gap: 20px;
+          }
+          .p5-profile-img-container {
+            flex: 0 0 180px;
           }
           .p5-profile-img {
-            width: 200px;
-            height: 270px;
+            width: 180px;
+            height: 245px;
           }
         }
 
         .p5-header-skew {
           background: #d92323;
-          display: inline-block;
+          display: block;
           padding: 15px 40px;
           transform: skewX(-15deg);
           box-shadow: 8px 8px 0px rgba(0,0,0,0.8);
           border: 3px solid black;
           margin-left: 20px;
-          align-self: flex-start;
+          width: calc(100% - 30px);
+          box-sizing: border-box;
         }
 
         .p5-header-skew > * {
           transform: skewX(15deg);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          width: 100%;
         }
 
         .p5-title {
           font-family: 'Persona5Main';
-          font-size: 64px;
+          font-size: clamp(22px, 6vw, 72px);
           letter-spacing: -2px;
           word-spacing: 8px;
           line-height: 1;
@@ -86,7 +100,7 @@ export default function MainPage() {
         .p5-subtitle {
           font-family: sans-serif;
           font-weight: bold;
-          font-size: 20px;
+          font-size: clamp(12px, 1.5vw, 20px);
           letter-spacing: 1px;
           margin-top: 5px;
           color: black;
@@ -335,23 +349,25 @@ export default function MainPage() {
             gap: 25px;
           }
           .p5-hero-section {
-            flex-direction: column;
+            gap: 15px;
           }
           .p5-profile-img-container {
-            flex: 0 0 auto;
+            flex: 0 0 140px;
           }
           .p5-profile-img {
-            width: 180px;
-            height: 240px;
+            width: 140px;
+            height: 190px;
           }
           .p5-title {
-            font-size: 40px;
+            font-size: 32px;
+            letter-spacing: -3px;
           }
           .p5-subtitle {
             font-size: 16px;
           }
           .p5-header-skew {
-            padding: 10px 24px;
+            padding: 10px 20px;
+            width: calc(100% - 15px);
             margin-left: 10px;
           }
           .p5-content-box {
@@ -387,16 +403,30 @@ export default function MainPage() {
             padding: 60px 12px 20px 12px;
             gap: 20px;
           }
-          .p5-title {
-            font-size: 32px;
+          .p5-hero-section {
+            gap: 12px;
+          }
+          .p5-profile-img-container {
+            flex: 0 0 100px;
           }
           .p5-profile-img {
-            width: 140px;
-            height: 190px;
+            width: 100px;
+            height: 135px;
+            border-width: 3px;
+            box-shadow: 4px 4px 0px #d92323, 0 0 0 6px #0d0d0d;
+          }
+          .p5-title {
+            font-size: 7vw;
+            letter-spacing: -3px;
+          }
+          .p5-subtitle {
+            word-spacing: 2px;
           }
           .p5-header-skew {
-            padding: 8px 16px;
+            padding: 8px 12px;
             margin-left: 5px;
+            border-width: 2px;
+            width: calc(100% - 10px);
           }
           .p5-content-box {
             padding: 15px;
@@ -424,12 +454,12 @@ export default function MainPage() {
               <h2 className="p5-subtitle">{personalInfo.education}</h2>
             </div>
           </div>
-
-          <div className="p5-content-box" style={{ marginTop: '30px' }}>
-            <h3>ABOUT ME</h3>
-            <p>{personalInfo.about}</p>
-          </div>
         </div>
+      </div>
+
+      <div className="p5-content-box" style={{ maxWidth: '1200px' }}>
+        <h3>ABOUT ME</h3>
+        <p>{personalInfo.about}</p>
       </div>
 
       {personalInfo.educationList && personalInfo.educationList.length > 0 && (

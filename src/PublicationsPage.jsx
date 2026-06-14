@@ -83,7 +83,7 @@ export default function PublicationsPage() {
         }
 
         .p5-project-card-wrapper:hover .p5-project-card {
-          transform: rotate(-1deg);
+          transform: rotate(1deg);
           box-shadow: 8px 8px 0px #d92323;
         }
 

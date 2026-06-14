@@ -13,6 +13,13 @@ export default function P5Button({ children, onClick, href, className = "", styl
     setIsHovered(false);
   };
 
+  const handleTouchEnd = () => {
+    // Delay removing the hover state so the animation plays out fully on tap
+    setTimeout(() => {
+      setIsHovered(false);
+    }, 400);
+  };
+
   const Component = href ? "a" : "button";
   const props = href ? { href, target: "_blank", rel: "noopener noreferrer" } : {};
 
@@ -23,11 +30,14 @@ export default function P5Button({ children, onClick, href, className = "", styl
 
   return (
     <Component
-      className={`p5-btn-wrap ${className}`}
+      className={`p5-btn-wrap ${className} ${isHovered ? 'is-hovered' : ''}`}
       style={style}
       onClick={onClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onTouchStart={handleMouseEnter}
+      onTouchEnd={handleTouchEnd}
+      onTouchCancel={handleTouchEnd}
       {...props}
     >
       <style>{`
@@ -44,6 +54,7 @@ export default function P5Button({ children, onClick, href, className = "", styl
           padding: 8px 16px;
           transform: skewX(-10deg);
           outline: none;
+          -webkit-tap-highlight-color: transparent !important;
         }
         
         .p5-btn-base-poly-border {
@@ -94,6 +105,9 @@ export default function P5Button({ children, onClick, href, className = "", styl
         .p5-btn-shadow-tri.pop {
           animation: p5-btn-shadow-pop 0.28s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
         }
+        .p5-btn-wrap:active .p5-btn-shadow-tri {
+          animation: p5-btn-shadow-pop 0.28s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
 
         .p5-btn-highlight {
           position: absolute;
@@ -106,7 +120,9 @@ export default function P5Button({ children, onClick, href, className = "", styl
           clip-path: ${clipShape};
           transition: transform 0.22s cubic-bezier(0.22,1,0.36,1);
         }
-        .p5-btn-wrap:hover .p5-btn-highlight {
+        .p5-btn-wrap:hover .p5-btn-highlight,
+        .p5-btn-wrap:active .p5-btn-highlight,
+        .p5-btn-wrap.is-hovered .p5-btn-highlight {
           transform: scaleX(1);
           animation: p5-btn-wiggle-poly 0.66s ease-in-out infinite;
         }
@@ -125,7 +141,9 @@ export default function P5Button({ children, onClick, href, className = "", styl
           paint-order: stroke fill;
           -webkit-text-stroke: 1.5px black;
         }
-        .p5-btn-wrap:hover .p5-btn-label-dark { color: #ffffff; }
+        .p5-btn-wrap:hover .p5-btn-label-dark,
+        .p5-btn-wrap:active .p5-btn-label-dark,
+        .p5-btn-wrap.is-hovered .p5-btn-label-dark { color: #ffffff; }
 
         .p5-btn-label-bright {
           color: #1a1a1a;
@@ -137,7 +155,9 @@ export default function P5Button({ children, onClick, href, className = "", styl
           clip-path: ${clipShape};
           transition: opacity 0.12s ease;
         }
-        .p5-btn-wrap:hover .p5-btn-label-bright { opacity: 1; }
+        .p5-btn-wrap:hover .p5-btn-label-bright,
+        .p5-btn-wrap:active .p5-btn-label-bright,
+        .p5-btn-wrap.is-hovered .p5-btn-label-bright { opacity: 1; }
       `}</style>
       
       <div className="p5-btn-base-poly-border" />

@@ -309,20 +309,31 @@ export default function P5SideNav() {
             padding: 30px 20px;
           }
           .p5-sidenav-drawer .p5-menu {
-            gap: 16px;
+            gap: 28px;
           }
           .p5-sidenav-drawer .p5-row {
             margin-left: 0 !important;
-            margin-top: 5px !important;
+            margin-top: 8px !important;
           }
+          /* Image sits behind the menu as a full-screen background */
           .p5-sidenav-image-drawer {
-            display: none;
+            width: 100vw;
+            z-index: 997;
+            opacity: 0.85;
+            filter: none;
+          }
+          .p5-sidenav-image-drawer img {
+            clip-path: none;
+            object-position: center center;
           }
           .p5-label-base {
             -webkit-text-stroke: 5px rgba(0, 0, 0, 0.8) !important;
           }
           .p5-label-bright {
             -webkit-text-stroke: 5px rgba(255, 255, 255, 0.9) !important;
+          }
+          .p5-sidenav-overlay.open {
+            background: rgba(0, 0, 0, 0.7);
           }
         }
 
@@ -331,7 +342,7 @@ export default function P5SideNav() {
             padding: 20px 12px;
           }
           .p5-sidenav-drawer .p5-menu {
-            gap: 10px;
+            gap: 22px;
           }
         }
       `}</style>

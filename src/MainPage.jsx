@@ -114,7 +114,7 @@ export default function MainPage() {
           position: relative;
           box-shadow: 6px 6px 0px rgba(217, 35, 35, 0.8);
           clip-path: polygon(0 0, 100% 5px, 98% 100%, 2% 98%);
-          max-width: 900px;
+          max-width: 1200px;
         }
 
         .p5-content-box h3 {
@@ -457,7 +457,7 @@ export default function MainPage() {
         </div>
       </div>
 
-      <div className="p5-content-box" style={{ maxWidth: '1200px' }}>
+      <div className="p5-content-box">
         <h3>ABOUT ME</h3>
         <p>{personalInfo.about}</p>
       </div>
@@ -477,7 +477,7 @@ export default function MainPage() {
         </div>
       )}
 
-      <div className="p5-content-box" style={{ maxWidth: '1100px' }}>
+      <div className="p5-content-box">
         <h3>HIGHLIGHTS</h3>
         <div className="p5-highlights-grid">
           {highlights.map((hl, idx) => (

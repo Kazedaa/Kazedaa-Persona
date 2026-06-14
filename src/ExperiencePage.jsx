@@ -49,7 +49,7 @@ export default function ExperiencePage() {
           display: flex;
           flex-direction: column;
           gap: 30px;
-          max-width: 900px;
+          max-width: 1200px;
         }
 
         .p5-experience-box {

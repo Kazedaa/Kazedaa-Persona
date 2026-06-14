@@ -7,7 +7,19 @@ import { useScrollDirection } from './utils/useScrollDirection';
 
 export default function MinimalPortfolio({ onActivateP5 }) {
   const [theme, setTheme] = useState('dark');
+  const [selectedItem, setSelectedItem] = useState(null);
   const isScrollVisible = useScrollDirection();
+
+  const groupedExperiences = experiences.reduce((acc, curr, idx) => {
+    const existing = acc.find(e => e.company === curr.company);
+    const roleData = { ...curr, originalIdx: idx };
+    if (existing) {
+      existing.roles.push(roleData);
+    } else {
+      acc.push({ company: curr.company, roles: [roleData] });
+    }
+    return acc;
+  }, []);
 
   useEffect(() => {
     document.body.className = `minimal-theme-${theme}`;
@@ -85,13 +97,24 @@ export default function MinimalPortfolio({ onActivateP5 }) {
       <section className="minimal-section">
         <h3>EXPERIENCE</h3>
         <div className="minimal-list">
-          {experiences.map((exp, idx) => (
-            <div key={idx} className="minimal-card">
-              <div className="minimal-card-header">
-                <h4>{exp.role} @ {exp.company}</h4>
-                <span>{exp.date}</span>
+          {groupedExperiences.map((group, gIdx) => (
+            <div key={gIdx} className="minimal-exp-group">
+              <div className="minimal-exp-company">{group.company}</div>
+              <div className="minimal-exp-roles">
+                {group.roles.map((role, rIdx) => (
+                  <div 
+                    key={rIdx} 
+                    className="minimal-card clickable"
+                    onClick={() => setSelectedItem(role)}
+                  >
+                    <div className="minimal-card-header">
+                      <h4>{role.role}</h4>
+                      <span>{role.dateRange}</span>
+                    </div>
+                    <p className="truncated-desc">{role.description}</p>
+                  </div>
+                ))}
               </div>
-              <p>{exp.description}</p>
             </div>
           ))}
         </div>
@@ -101,11 +124,11 @@ export default function MinimalPortfolio({ onActivateP5 }) {
         <h3>PUBLICATIONS</h3>
         <div className="minimal-grid">
           {publications.map((pub, idx) => (
-            <div key={idx} className="minimal-card">
+            <div key={idx} className="minimal-card clickable" onClick={() => setSelectedItem(pub)}>
               {pub.image && <img src={pub.image} alt={pub.title} className="minimal-card-image" />}
               <h4>{pub.title}</h4>
-              <p>{pub.description}</p>
-              {pub.link && <a href={pub.link} target="_blank" rel="noopener noreferrer">READ PAPER</a>}
+              <p className="truncated-desc">{pub.description}</p>
+              {pub.link && <a href={pub.link} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>READ PAPER</a>}
             </div>
           ))}
         </div>
@@ -115,15 +138,47 @@ export default function MinimalPortfolio({ onActivateP5 }) {
         <h3>PROJECTS</h3>
         <div className="minimal-grid">
           {projects.map((proj, idx) => (
-            <div key={idx} className="minimal-card">
+            <div key={idx} className="minimal-card clickable" onClick={() => setSelectedItem(proj)}>
               {proj.image && <img src={proj.image} alt={proj.title} className="minimal-card-image" />}
               <h4>{proj.title}</h4>
-              <p>{proj.description}</p>
-              {proj.link && <a href={proj.link} target="_blank" rel="noopener noreferrer">VIEW PROJECT</a>}
+              <p className="truncated-desc">{proj.description}</p>
+              {proj.link && <a href={proj.link} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>VIEW PROJECT</a>}
             </div>
           ))}
         </div>
       </section>
+
+      {/* Modal Overlay */}
+      <div 
+        className={`minimal-modal-overlay ${selectedItem ? 'open' : ''}`}
+        onClick={() => setSelectedItem(null)}
+      >
+        {selectedItem && (
+          <div className="minimal-modal-content" onClick={e => e.stopPropagation()}>
+            <button className="minimal-modal-close" onClick={() => setSelectedItem(null)}>X</button>
+            {selectedItem.image && <img className="minimal-modal-image" src={selectedItem.image} alt={selectedItem.title || selectedItem.role} />}
+            <h2 className="minimal-modal-title">{selectedItem.title || selectedItem.role}</h2>
+            <div className="minimal-modal-subtitle">
+              {selectedItem.company ? `@ ${selectedItem.company}` : selectedItem.school ? `@ ${selectedItem.school}` : ''}
+            </div>
+            <div className="minimal-modal-date">{selectedItem.date || selectedItem.dateRange}</div>
+            {selectedItem.publisher && <div className="minimal-modal-publisher">{selectedItem.publisher}</div>}
+            <div className="minimal-modal-desc">{selectedItem.description}</div>
+            {selectedItem.highlights && selectedItem.highlights.length > 0 && (
+              <ul className="minimal-modal-highlights">
+                {selectedItem.highlights.map((highlight, idx) => (
+                  <li key={idx}>{highlight}</li>
+                ))}
+              </ul>
+            )}
+            {selectedItem.link && (
+              <a href={selectedItem.link} target="_blank" rel="noopener noreferrer" className="minimal-modal-link" onClick={e => e.stopPropagation()}>
+                VIEW MORE
+              </a>
+            )}
+          </div>
+        )}
+      </div>
 
 
       <style>{`
@@ -445,6 +500,145 @@ export default function MinimalPortfolio({ onActivateP5 }) {
           opacity: 0.6;
         }
 
+        .minimal-card.clickable {
+          cursor: pointer;
+        }
+
+        .truncated-desc {
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          max-height: 4.8em;
+        }
+
+        .minimal-exp-group {
+          margin-bottom: 2rem;
+          border-left: 2px solid var(--border-color);
+          padding-left: 1.5rem;
+        }
+
+        .minimal-exp-company {
+          font-size: 1.5rem;
+          font-weight: 700;
+          margin-bottom: 1rem;
+          color: var(--text-color);
+        }
+
+        .minimal-exp-roles {
+          display: flex;
+          flex-direction: column;
+          gap: 1.5rem;
+        }
+
+        /* Modal Styles */
+        .minimal-modal-overlay {
+          position: fixed;
+          top: 0; left: 0; right: 0; bottom: 0;
+          background: rgba(0,0,0,0.6);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 2000;
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity 0.2s ease;
+          backdrop-filter: blur(5px);
+        }
+        .minimal-modal-overlay.open {
+          opacity: 1;
+          pointer-events: all;
+        }
+        .minimal-modal-content {
+          background: var(--bg-color);
+          border: 1px solid var(--border-color);
+          padding: 3rem;
+          max-width: 600px;
+          max-height: 90vh;
+          overflow-y: auto;
+          width: 90%;
+          position: relative;
+          color: var(--text-color);
+          box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        .minimal-theme-dark .minimal-modal-content {
+          box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+        }
+        .minimal-modal-close {
+          position: absolute;
+          top: 15px;
+          right: 20px;
+          background: transparent;
+          border: none;
+          color: var(--secondary-text);
+          font-size: 1.5rem;
+          cursor: pointer;
+          transition: color 0.2s;
+        }
+        .minimal-modal-close:hover {
+          color: var(--text-color);
+        }
+        .minimal-modal-image {
+          width: 100%;
+          height: auto;
+          max-height: 300px;
+          object-fit: cover;
+          margin-bottom: 1.5rem;
+          border-radius: 4px;
+        }
+        .minimal-modal-title {
+          font-size: 2rem;
+          margin: 0 0 0.5rem 0;
+          font-weight: 700;
+        }
+        .minimal-modal-subtitle {
+          font-size: 1.2rem;
+          color: var(--secondary-text);
+          margin-bottom: 0.5rem;
+        }
+        .minimal-modal-date {
+          font-size: 1rem;
+          color: var(--secondary-text);
+          margin-bottom: 1.5rem;
+          font-style: italic;
+        }
+        .minimal-modal-publisher {
+          font-size: 1rem;
+          color: var(--secondary-text);
+          margin-bottom: 1.5rem;
+        }
+        .minimal-modal-desc {
+          font-size: 1.05rem;
+          line-height: 1.6;
+          color: var(--text-color);
+          margin-bottom: 2rem;
+        }
+        .minimal-modal-highlights {
+          font-size: 1.05rem;
+          line-height: 1.6;
+          color: var(--text-color);
+          margin-bottom: 2rem;
+          padding-left: 1.5rem;
+        }
+        .minimal-modal-highlights li {
+          margin-bottom: 0.5rem;
+        }
+        .minimal-modal-link {
+          display: inline-block;
+          color: var(--text-color);
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 0.9rem;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          border-bottom: 1px solid var(--text-color);
+          padding-bottom: 2px;
+          transition: opacity 0.2s;
+        }
+        .minimal-modal-link:hover {
+          opacity: 0.6;
+        }
+
         /* ===== MOBILE RESPONSIVE ===== */
         @media (max-width: 768px) {
           .minimal-container {
@@ -497,6 +691,19 @@ export default function MinimalPortfolio({ onActivateP5 }) {
           }
           .minimal-card-image {
             height: 160px;
+          }
+          .minimal-modal-content {
+            padding: 2rem;
+          }
+          .minimal-modal-title {
+            font-size: 1.5rem;
+          }
+          .minimal-exp-group {
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+          }
+          .minimal-exp-company {
+            font-size: 1.25rem;
           }
         }
 

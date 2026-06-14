@@ -151,8 +151,6 @@
     direction: rtl;
     width: 8px;
     height: 90px;
-    appearance: slider-vertical;
-    -webkit-appearance: slider-vertical;
   }
   .bgm-slider-label,
   .bgm-slider-value {

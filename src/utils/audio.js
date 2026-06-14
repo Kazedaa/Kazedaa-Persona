@@ -1,5 +1,14 @@
+let selectAudio = null;
+
 export const playSelectSound = () => {
-  const audio = new Audio('/audio/select.mp3');
-  audio.volume = 0.5;
-  audio.play().catch(() => {});
+  if (typeof window === 'undefined') return;
+  
+  if (!selectAudio) {
+    selectAudio = new Audio('/audio/select.mp3');
+    selectAudio.volume = 0.5;
+  }
+  
+  // Reset playback position
+  selectAudio.currentTime = 0;
+  selectAudio.play().catch(() => {});
 };

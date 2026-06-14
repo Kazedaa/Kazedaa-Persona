@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { playSelectSound } from "./utils/audio.js";
@@ -82,19 +82,17 @@ export default function PageTransition({ children }) {
 
   return (
     <>
-      <AnimatePresence mode="wait">
-        <motion.div key={location.pathname} style={{ position: "relative" }}>
-          <CombinedTransition />
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2, delay: 0.18 }}
-          >
-            {children}
-          </motion.div>
+      <motion.div key={location.pathname} style={{ position: "relative" }}>
+        <CombinedTransition />
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2, delay: 0.18 }}
+        >
+          {children}
         </motion.div>
-      </AnimatePresence>
+      </motion.div>
     </>
   );
 }

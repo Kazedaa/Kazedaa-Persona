@@ -282,3 +282,14 @@ export const publications = [
     link: "https://link.springer.com/chapter/10.1007/978-981-96-1348-9_9"
   },
 ];
+
+export const groupedExperiences = experiences.reduce((acc, curr, idx) => {
+  const existing = acc.find(e => e.company === curr.company);
+  const roleData = { ...curr, originalIdx: idx };
+  if (existing) {
+    existing.roles.push(roleData);
+  } else {
+    acc.push({ company: curr.company, roles: [roleData] });
+  }
+  return acc;
+}, []);

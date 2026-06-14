@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export function useScrollDirection() {
   const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,25 +15,25 @@ export function useScrollDirection() {
       );
       
       // If no scrolling has occurred vertically, ignore
-      if (currentScrollY === lastScrollY) return;
+      if (currentScrollY === lastScrollY.current) return;
       
       if (currentScrollY <= 50) {
         setIsVisible(true);
       } else {
-        if (currentScrollY < lastScrollY) {
+        if (currentScrollY < lastScrollY.current) {
           setIsVisible(true);
-        } else if (currentScrollY > lastScrollY && currentScrollY > 50) {
+        } else if (currentScrollY > lastScrollY.current && currentScrollY > 50) {
           setIsVisible(false);
         }
       }
       
-      setLastScrollY(currentScrollY);
+      lastScrollY.current = currentScrollY;
     };
 
     // Use capture: true so we catch scrolls on ANY scrollable child container (like #root)
     window.addEventListener('scroll', handleScroll, { passive: true, capture: true });
     return () => window.removeEventListener('scroll', handleScroll, { capture: true });
-  }, [lastScrollY]);
+  }, []);
 
   return isVisible;
 }

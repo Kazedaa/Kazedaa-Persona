@@ -4,12 +4,14 @@ import { personalInfo, highlights, groupedExperiences } from "./data/portfolioDa
 import profilePic from './assets/profile-picture.webp';
 import P5Button from "./P5Button";
 import P5Modal from "./P5Modal";
+import ContactModal from "./ContactModal";
 import { playSelectSound } from './utils/audio';
 import './P5Shared.css';
 import './MainPage.css';
 
 export default function MainPage() {
   const [selectedHighlight, setSelectedHighlight] = useState(null);
+  const [isContactOpen, setIsContactOpen] = useState(false);
   const navigate = useNavigate();
 
   return (
@@ -33,6 +35,11 @@ export default function MainPage() {
       <div className="p5-content-box">
         <h3>ABOUT ME</h3>
         <p>{personalInfo.about}</p>
+        <div style={{ marginTop: '20px' }}>
+          <P5Button className="p5-social-link" variant="red" onClick={() => setIsContactOpen(true)}>
+            <span style={{letterSpacing: '-4px', wordSpacing: '6px'}}>CONTACT ME</span>
+          </P5Button>
+        </div>
       </div>
 
       {personalInfo.educationList && personalInfo.educationList.length > 0 && (
@@ -106,6 +113,11 @@ export default function MainPage() {
         onClose={() => setSelectedHighlight(null)} 
         data={selectedHighlight} 
         linkText="VIEW MORE >"
+      />
+
+      <ContactModal 
+        isOpen={isContactOpen}
+        onClose={() => setIsContactOpen(false)}
       />
 
     </div>

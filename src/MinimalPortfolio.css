@@ -52,6 +52,19 @@ body.minimal-theme-dark {
   color: var(--bg-color);
 }
 
+.minimal-primary-btn {
+  background-color: var(--text-color);
+  color: var(--bg-color);
+  border-radius: 4px;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+}
+
+.minimal-primary-btn:hover {
+  background-color: transparent;
+  color: var(--text-color);
+}
+
 .easter-egg-container {
   position: fixed;
   top: 30px;
@@ -453,6 +466,79 @@ body.minimal-theme-dark {
 }
 .minimal-modal-link:hover {
   opacity: 0.6;
+}
+
+/* Contact Form Styles */
+.minimal-contact-modal {
+  max-width: 500px;
+}
+
+.minimal-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.minimal-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.minimal-input-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--secondary-text);
+}
+
+.minimal-input-group input,
+.minimal-input-group textarea {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  padding: 1rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--text-color);
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.minimal-input-group input:focus,
+.minimal-input-group textarea:focus {
+  border-color: var(--text-color);
+  box-shadow: 0 0 0 1px var(--text-color);
+}
+
+.minimal-input-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.minimal-contact-submit {
+  background: var(--text-color);
+  color: var(--bg-color);
+  border: none;
+  padding: 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+  transition: opacity 0.2s;
+}
+
+.minimal-contact-submit:hover:not(:disabled) {
+  opacity: 0.8;
+}
+
+.minimal-contact-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 /* ===== MOBILE RESPONSIVE ===== */

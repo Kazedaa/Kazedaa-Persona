@@ -10,6 +10,8 @@ import './MinimalPortfolio.css';
 export default function MinimalPortfolio({ onActivateP5 }) {
   const [theme, setTheme] = useState('dark');
   const [selectedItem, setSelectedItem] = useState(null);
+  const [isContactOpen, setIsContactOpen] = useState(false);
+  const [contactStatus, setContactStatus] = useState('idle');
   const isScrollVisible = useScrollDirection();
 
   useEffect(() => {
@@ -20,6 +22,40 @@ export default function MinimalPortfolio({ onActivateP5 }) {
   }, [theme]);
 
   const toggleTheme = () => setTheme(t => t === 'light' ? 'dark' : 'light');
+
+  const handleContactSubmit = async (e) => {
+    e.preventDefault();
+    setContactStatus('submitting');
+    
+    const targetEmail = personalInfo.socials.email.replace('mailto:', '');
+
+    try {
+      await fetch(`https://formsubmit.co/ajax/${targetEmail}`, {
+        method: "POST",
+        headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: e.target.name.value,
+          email: e.target.email.value,
+          message: e.target.message.value,
+          _subject: "New Contact Form Submission from Portfolio (Minimal)"
+        })
+      });
+      
+      setContactStatus('success');
+      setTimeout(() => {
+        setIsContactOpen(false);
+        setContactStatus('idle');
+        e.target.reset();
+      }, 2000);
+    } catch (error) {
+      console.error("Form submission error:", error);
+      alert("Failed to send message. Please try again later.");
+      setContactStatus('idle');
+    }
+  };
 
   return (
     <div className="minimal-container">
@@ -43,7 +79,12 @@ export default function MinimalPortfolio({ onActivateP5 }) {
             <h2>{personalInfo.title}</h2>
           </div>
         </div>
-        <p className="minimal-bio">{personalInfo.about}</p>
+        <div style={{ marginBottom: '2.5rem' }}>
+          <p className="minimal-bio" style={{ marginBottom: '1.2rem' }}>{personalInfo.about}</p>
+          <button className="minimal-btn minimal-primary-btn" onClick={() => setIsContactOpen(true)}>
+            CONTACT ME
+          </button>
+        </div>
         <div className="minimal-socials">
           {Object.entries(personalInfo.socials).map(([key, link]) => (
             <a key={key} href={link} target="_blank" rel="noopener noreferrer">
@@ -171,6 +212,51 @@ export default function MinimalPortfolio({ onActivateP5 }) {
         )}
       </div>
 
+      {/* Contact Modal Overlay */}
+      <div 
+        className={`minimal-modal-overlay ${isContactOpen ? 'open' : ''}`}
+        onClick={() => {
+          if (contactStatus !== 'submitting') {
+            setIsContactOpen(false);
+            setTimeout(() => setContactStatus('idle'), 200);
+          }
+        }}
+      >
+        {isContactOpen && (
+          <div className="minimal-modal-content minimal-contact-modal" onClick={e => e.stopPropagation()}>
+            <button className="minimal-modal-close" onClick={() => {
+              setIsContactOpen(false);
+              setTimeout(() => setContactStatus('idle'), 200);
+            }}>X</button>
+            <h2 className="minimal-modal-title" style={{marginBottom: '1.5rem'}}>CONTACT ME</h2>
+            
+            {contactStatus === 'success' ? (
+              <div style={{ textAlign: 'center', padding: '3rem 0' }}>
+                <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Message Sent</h3>
+                <p style={{ color: 'var(--secondary-text)' }}>Thank you! I'll get back to you soon.</p>
+              </div>
+            ) : (
+              <form className="minimal-contact-form" onSubmit={handleContactSubmit}>
+                <div className="minimal-input-group">
+                  <label>Name</label>
+                  <input type="text" name="name" required placeholder="Your Name" />
+                </div>
+                <div className="minimal-input-group">
+                  <label>Email</label>
+                  <input type="email" name="email" required placeholder="your@email.com" />
+                </div>
+                <div className="minimal-input-group">
+                  <label>Message</label>
+                  <textarea name="message" required placeholder="What's on your mind?"></textarea>
+                </div>
+                <button type="submit" className="minimal-contact-submit" disabled={contactStatus === 'submitting'}>
+                  {contactStatus === 'submitting' ? 'SENDING...' : 'SEND MESSAGE'}
+                </button>
+              </form>
+            )}
+          </div>
+        )}
+      </div>
 
     </div>
   );

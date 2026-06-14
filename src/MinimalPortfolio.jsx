@@ -24,8 +24,7 @@ export default function MinimalPortfolio({ onActivateP5 }) {
       <div className="easter-egg-container">
         <button className="easter-egg-btn" onClick={onActivateP5}>
           <img src={p5Logo} alt="P5 Logo" />
-        </button> 
-        <div className="easter-egg-text">TAKE YOUR HEART</div>
+        </button>
       </div>
 
       <header className="minimal-header">
@@ -36,15 +35,15 @@ export default function MinimalPortfolio({ onActivateP5 }) {
           <div className="header-text">
             <h1>{personalInfo.name}</h1>
             <h2>{personalInfo.title}</h2>
-            <p className="minimal-bio">{personalInfo.about}</p>
-            <div className="minimal-socials">
-              {Object.entries(personalInfo.socials).map(([key, link]) => (
-                <a key={key} href={link} target="_blank" rel="noopener noreferrer">
-                  {key}
-                </a>
-              ))}
-            </div>
           </div>
+        </div>
+        <p className="minimal-bio">{personalInfo.about}</p>
+        <div className="minimal-socials">
+          {Object.entries(personalInfo.socials).map(([key, link]) => (
+            <a key={key} href={link} target="_blank" rel="noopener noreferrer">
+              {key}
+            </a>
+          ))}
         </div>
       </header>
 
@@ -198,21 +197,6 @@ export default function MinimalPortfolio({ onActivateP5 }) {
           42% { transform: scale(1.1); filter: drop-shadow(4px 8px 15px rgba(217, 35, 35, 0.6)); }
           70% { transform: scale(1); filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3)); }
         }
-
-        @keyframes pulseText {
-          0%, 100% { opacity: 0.8; text-shadow: 2px 2px 0px rgba(0,0,0,0.2); }
-          50% { opacity: 1; text-shadow: 0 0 10px rgba(217, 35, 35, 0.8), 2px 2px 0px rgba(0,0,0,0.2); }
-        }
-
-        .easter-egg-text {
-          font-family: 'Persona5Main', sans-serif;
-          font-size: 1.1rem;
-          color: #d92323;
-          letter-spacing: 1px;
-          -webkit-text-stroke: 1px black;
-          transform: skewX(-10deg);
-          animation: pulseText 2s infinite;
-        }
         
         .easter-egg-btn {
           background: transparent;
@@ -268,13 +252,13 @@ export default function MinimalPortfolio({ onActivateP5 }) {
 
         @media (max-width: 768px) {
           .header-content-wrapper {
-            flex-direction: column;
-            text-align: left;
+            flex-direction: row;
             align-items: flex-start;
+            gap: 1.5rem;
           }
           .header-image {
-            flex: 0 0 150px;
-            width: 150px;
+            flex: 0 0 100px;
+            width: 100px;
           }
         }
         
@@ -295,6 +279,7 @@ export default function MinimalPortfolio({ onActivateP5 }) {
         .minimal-bio {
           font-size: 1.1rem;
           line-height: 1.6;
+          margin-top: 1.5rem;
           margin-bottom: 2rem;
           color: var(--secondary-text);
         }
@@ -463,9 +448,6 @@ export default function MinimalPortfolio({ onActivateP5 }) {
           .easter-egg-btn {
             width: 80px;
           }
-          .easter-egg-text {
-            font-size: 0.7rem;
-          }
           .minimal-header {
             margin-top: 5rem;
             margin-bottom: 3rem;
@@ -512,8 +494,8 @@ export default function MinimalPortfolio({ onActivateP5 }) {
             margin-bottom: 2rem;
           }
           .header-image {
-            flex: 0 0 120px;
-            width: 120px;
+            flex: 0 0 80px;
+            width: 80px;
           }
           .minimal-header h1 {
             font-size: 2rem;

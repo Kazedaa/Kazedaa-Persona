@@ -8,6 +8,17 @@ export default function MainPage() {
   const [selectedHighlight, setSelectedHighlight] = useState(null);
   const navigate = useNavigate();
 
+  const groupedExperiences = experiences.reduce((acc, curr, idx) => {
+    const existing = acc.find(e => e.company === curr.company);
+    const roleData = { ...curr, originalIdx: idx };
+    if (existing) {
+      existing.roles.push(roleData);
+    } else {
+      acc.push({ company: curr.company, roles: [roleData] });
+    }
+    return acc;
+  }, []);
+
   return (
     <div className="p5-page-wrapper">
       <style>{`
@@ -224,32 +235,68 @@ export default function MainPage() {
           font-size: 24px;
         }
 
-        /* Experience Summary */
-        .p5-exp-summary {
-          cursor: pointer;
-          margin-bottom: 20px;
-          padding: 15px;
-          border: 2px solid transparent;
-          transition: border-color 0.2s, background 0.2s;
+        /* Experience Section */
+        .p5-exp-group {
+          margin-bottom: 25px;
+          border-left: 4px solid #d92323;
+          padding-left: 20px;
         }
-        .p5-exp-summary:hover {
-          background: rgba(217, 35, 35, 0.1);
-          border-color: #d92323;
-        }
-        .p5-exp-company {
+        .p5-exp-company-name {
           font-family: 'Persona5Main';
           font-size: 32px;
-          letter-spacing: -10px;
-          word-spacing: 12px;
+          letter-spacing: -2px;
+          word-spacing: 6px;
           color: white;
+          margin-bottom: 10px;
         }
-        .p5-exp-role {
-          color: #d92323;
+        .p5-exp-roles-tree {
+          margin-left: 10px;
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+        }
+        .p5-exp-role-node {
+          cursor: pointer;
+          transition: transform 0.2s, background 0.2s;
+          padding: 10px;
+          border: 1px solid transparent;
+        }
+        .p5-exp-role-node:hover {
+          background: rgba(217, 35, 35, 0.1);
+          border-color: #d92323;
+          transform: translateX(5px);
+        }
+        .p5-exp-role-title {
+          font-size: 20px;
           font-weight: bold;
+          color: #d92323;
           margin-bottom: 5px;
-          font-size: 18px;
-          letter-spacing: -3px;
-          word-spacing: 12px;
+          letter-spacing: -1px;
+        }
+        .p5-exp-role-date {
+          font-size: 16px;
+          color: #cccccc;
+          margin-bottom: 5px;
+        }
+        .p5-exp-desc {
+          font-size: 15px;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          margin-top: 5px;
+          color: #e0e0e0;
+        }
+        .p5-exp-role-title {
+          font-size: 20px;
+          font-weight: bold;
+          color: #d92323;
+          margin-bottom: 5px;
+          letter-spacing: -1px;
+        }
+        .p5-exp-role-date {
+          font-size: 16px;
+          color: #cccccc;
         }
 
         /* Education */
@@ -496,11 +543,22 @@ export default function MainPage() {
 
       <div className="p5-content-box">
         <h3>EXPERIENCE</h3>
-        {experiences.map((exp, idx) => (
-          <div key={idx} className="p5-exp-summary" onClick={() => navigate('/experience')}>
-            <div className="p5-exp-company">{exp.company}</div>
-            <div className="p5-exp-role">{exp.role} ({exp.dateRange})</div>
-            <p className="p5-exp-desc">{exp.description}</p>
+        {groupedExperiences.map((group, gIdx) => (
+          <div key={gIdx} className="p5-exp-group">
+            <div className="p5-exp-company-name">{group.company}</div>
+            <div className="p5-exp-roles-tree">
+              {group.roles.map((role, rIdx) => (
+                <div 
+                  key={rIdx} 
+                  className="p5-exp-role-node" 
+                  onClick={() => navigate(`/experience#exp-${role.originalIdx}`)}
+                >
+                  <div className="p5-exp-role-title">{role.role}</div>
+                  <div className="p5-exp-role-date">{role.dateRange}</div>
+                  <p className="p5-exp-desc">{role.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
         ))}
       </div>

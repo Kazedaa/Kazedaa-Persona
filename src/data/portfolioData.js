@@ -94,6 +94,24 @@ export const experiences = [
   },
   {
 
+    company: "IEEE NITK",
+    role: "Project Head",
+    dateRange: "Apr 2025 - Apr 2026",
+    description: "Directed the year-long technical mentorship program and oversaw financial operations for the student chapter. This leadership role allowed me to step outside of pure engineering to hone my skills in project management, resource allocation, and organizational strategy.",
+    highlights: [
+    ]
+  },
+  {
+
+    company: "IEEE NITK",
+    role: "Executive Member",
+    dateRange: "Dec 2022 - Apr 2026",
+    description: "Mentored a team of junior developers through the end-to-end research and development of a complex computer vision pipeline. This role allowed me to develop my technical leadership skills, translating my deep learning expertise into actionable guidance and architectural direction for the students.",
+    highlights: [
+    ]
+  },
+  {
+
     company: "Indian Institute of Science (IISc)",
     role: "Undergraduate Research Assistant",
     dateRange: "May 2025 - Sept 2025",
@@ -105,15 +123,6 @@ export const experiences = [
       "Designed and integrated a graph-based tracking algorithm, leveraging fundamental data structures to significantly reduce computational overhead compared to standard deep learning based tracking methods.",
       "Formulated and introduced novel evaluation metrics, including Center-Scale Consistency (CSC) and Geometric Alignment Score (GAS), to rigorously assess geometric fidelity beyond standard IoU metrics.",
       "Outperformed existing baselines by 6% in Success AUC and established new efficiency benchmarks by achieving an inference speed of 37 FPS while halving the model size (45M) compared to other state-of-the-art methods."
-    ]
-  },
-  {
-
-    company: "IEEE NITK",
-    role: "Project Head",
-    dateRange: "Apr 2025 - Apr 2026",
-    description: "Directed the year-long technical mentorship program and oversaw financial operations for the student chapter. This leadership role allowed me to step outside of pure engineering to hone my skills in project management, resource allocation, and organizational strategy.",
-    highlights: [
     ]
   },
   {
@@ -132,15 +141,6 @@ export const experiences = [
   },
   {
 
-    company: "IEEE NITK",
-    role: "Executive Member",
-    dateRange: "Dec 2022 - Apr 2026",
-    description: "Mentored a team of junior developers through the end-to-end research and development of a complex computer vision pipeline. This role allowed me to develop my technical leadership skills, translating my deep learning expertise into actionable guidance and architectural direction for the students.",
-    highlights: [
-    ]
-  },
-  {
-
     company: "Indian Institute of Science (IISc)",
     role: "Undergraduate Research Assistant",
     dateRange: "Apr 2024 - July 2024",
@@ -151,7 +151,7 @@ export const experiences = [
       "Implemented an unsupervised temporal consistency loss, establishing a new state-of-the-art performance benchmark and proving the model's ability to generalize across various water types.",
       "Presented the research at the WACV2025 conference in Tucson, Arizona, earning praise from industry experts for contributing to the solution of maritime and environmental challenges."
     ]
-  },
+  }
 ];
 
 export const projects = [

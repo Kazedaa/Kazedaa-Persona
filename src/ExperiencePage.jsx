@@ -1,6 +1,23 @@
 import { experiences } from "./data/portfolioData";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 export default function ExperiencePage() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const timer = setTimeout(() => {
+        const id = location.hash.replace('#', '');
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }, 300);
+      return () => clearTimeout(timer);
+    }
+  }, [location.hash]);
+
   return (
     <div className="p5-page-wrapper">
       <style>{`
@@ -92,6 +109,7 @@ export default function ExperiencePage() {
           color: #d92323;
           letter-spacing: -5px;
           word-spacing: 12px;
+          margin-left: auto;
         }
 
         .p5-role {
@@ -195,7 +213,7 @@ export default function ExperiencePage() {
 
       <div className="p5-timeline">
         {experiences.map((exp, idx) => (
-          <div key={idx} className="p5-experience-box">
+          <div key={idx} id={`exp-${idx}`} className="p5-experience-box">
             <div className="p5-exp-header">
               <div className="p5-company">{exp.company}</div>
               <div className="p5-date-range">{exp.dateRange}</div>

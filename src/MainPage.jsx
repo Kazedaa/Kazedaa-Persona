@@ -327,6 +327,90 @@ export default function MainPage() {
         .p5-modal-link {
           font-size: 24px;
         }
+
+        /* ===== MOBILE RESPONSIVE ===== */
+        @media (max-width: 768px) {
+          .p5-page-wrapper {
+            padding: 70px 20px 30px 20px;
+            gap: 25px;
+          }
+          .p5-hero-section {
+            flex-direction: column;
+          }
+          .p5-profile-img-container {
+            flex: 0 0 auto;
+          }
+          .p5-profile-img {
+            width: 180px;
+            height: 240px;
+          }
+          .p5-title {
+            font-size: 40px;
+          }
+          .p5-subtitle {
+            font-size: 16px;
+          }
+          .p5-header-skew {
+            padding: 10px 24px;
+            margin-left: 10px;
+          }
+          .p5-content-box {
+            padding: 20px;
+          }
+          .p5-content-box h3 {
+            font-size: 28px;
+          }
+          .p5-content-box p {
+            font-size: 15px;
+          }
+          .p5-highlight-card-wrapper {
+            flex: 0 0 280px;
+          }
+          .p5-highlight-card img {
+            width: 90px;
+            height: 90px;
+          }
+          .p5-exp-company {
+            font-size: 24px;
+          }
+          .p5-edu-degree {
+            font-size: 24px;
+          }
+          .p5-modal-content {
+            padding: 25px;
+            width: 95%;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .p5-page-wrapper {
+            padding: 60px 12px 20px 12px;
+            gap: 20px;
+          }
+          .p5-title {
+            font-size: 32px;
+          }
+          .p5-profile-img {
+            width: 140px;
+            height: 190px;
+          }
+          .p5-header-skew {
+            padding: 8px 16px;
+            margin-left: 5px;
+          }
+          .p5-content-box {
+            padding: 15px;
+          }
+          .p5-content-box h3 {
+            font-size: 22px;
+          }
+          .p5-highlight-card-wrapper {
+            flex: 0 0 240px;
+          }
+          .p5-social-link {
+            font-size: 18px;
+          }
+        }
       `}</style>
 
       <div className="p5-hero-section">

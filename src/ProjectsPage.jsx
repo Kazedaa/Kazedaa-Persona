@@ -194,6 +194,52 @@ export default function ProjectsPage() {
           line-height: 1.6;
           margin-bottom: 25px;
         }
+
+        /* ===== MOBILE RESPONSIVE ===== */
+        @media (max-width: 768px) {
+          .p5-page-wrapper {
+            padding: 70px 20px 30px 20px;
+            gap: 25px;
+          }
+          .p5-title {
+            font-size: 40px;
+          }
+          .p5-header-skew {
+            padding: 10px 24px;
+            margin-left: 10px;
+          }
+          .p5-projects-grid {
+            grid-template-columns: 1fr;
+            gap: 25px;
+          }
+          .p5-project-title {
+            font-size: 24px;
+          }
+          .p5-modal-content {
+            padding: 25px;
+            width: 95%;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .p5-page-wrapper {
+            padding: 60px 12px 20px 12px;
+            gap: 20px;
+          }
+          .p5-title {
+            font-size: 32px;
+          }
+          .p5-header-skew {
+            padding: 8px 16px;
+            margin-left: 5px;
+          }
+          .p5-project-info {
+            padding: 15px;
+          }
+          .p5-project-title {
+            font-size: 20px;
+          }
+        }
       `}</style>
 
       <div className="p5-header-skew">

@@ -125,6 +125,59 @@ export default function ExperiencePage() {
           font-size: 12px;
           top: 2px;
         }
+
+        /* ===== MOBILE RESPONSIVE ===== */
+        @media (max-width: 768px) {
+          .p5-page-wrapper {
+            padding: 70px 20px 30px 20px;
+            gap: 25px;
+          }
+          .p5-title {
+            font-size: 40px;
+          }
+          .p5-header-skew {
+            padding: 10px 24px;
+            margin-left: 10px;
+          }
+          .p5-company {
+            font-size: 28px;
+          }
+          .p5-date-range {
+            font-size: 18px;
+          }
+          .p5-experience-box {
+            padding: 20px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .p5-page-wrapper {
+            padding: 60px 12px 20px 12px;
+            gap: 20px;
+          }
+          .p5-title {
+            font-size: 32px;
+          }
+          .p5-header-skew {
+            padding: 8px 16px;
+            margin-left: 5px;
+          }
+          .p5-company {
+            font-size: 22px;
+          }
+          .p5-date-range {
+            font-size: 16px;
+          }
+          .p5-experience-box {
+            padding: 15px;
+          }
+          .p5-exp-desc {
+            font-size: 14px;
+          }
+          .p5-exp-bullets li {
+            font-size: 13px;
+          }
+        }
       `}</style>
 
       <div className="p5-header-skew">

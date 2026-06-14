@@ -225,15 +225,9 @@ export default function App() {
     <>
       <P5SideNav />
       <P5Button
+        className="exit-metaverse-btn"
         variant="dark"
         onClick={() => setIsP5Theme(false)}
-        style={{
-          position: 'fixed',
-          bottom: '20px',
-          right: '20px',
-          zIndex: 9999,
-          fontSize: '24px',
-        }}
       >
         <span style={{letterSpacing: '-5px', wordSpacing: '12px'}}>EXIT METAVERSE</span>
       </P5Button>

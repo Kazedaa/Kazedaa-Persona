@@ -4,6 +4,29 @@ body {
   font-family: 'Persona5Main';
 }
 
+.exit-metaverse-btn {
+  position: fixed !important;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  font-size: 24px;
+}
+
+@media (max-width: 768px) {
+  .exit-metaverse-btn {
+    font-size: 16px !important;
+    bottom: 12px !important;
+    right: 12px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .exit-metaverse-btn {
+    font-size: 13px !important;
+    bottom: 8px !important;
+    right: 8px !important;
+  }
+}
 
 
 .bgm-panel {
@@ -80,4 +103,38 @@ body {
   padding: 6px 8px;
   border-width: 1px;
   opacity: 1;
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .bgm-panel {
+    left: 12px;
+    bottom: 12px;
+    padding: 6px 8px;
+  }
+  .bgm-toggle {
+    font-size: 11px;
+    min-width: 60px;
+    padding: 6px 8px;
+  }
+  .bgm-panel:hover .bgm-slider-wrap,
+  .bgm-panel:focus-within .bgm-slider-wrap {
+    max-width: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bgm-panel {
+    left: 8px;
+    bottom: 8px;
+  }
+  .bgm-toggle {
+    font-size: 10px;
+    min-width: 50px;
+    padding: 5px 6px;
+  }
+  .bgm-panel:hover .bgm-slider-wrap,
+  .bgm-panel:focus-within .bgm-slider-wrap {
+    max-width: 100px;
+  }
 }

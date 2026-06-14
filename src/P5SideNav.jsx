@@ -27,7 +27,16 @@ export default function P5SideNav() {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const [winWidth, setWinWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
   
+  useEffect(() => {
+    const onResize = () => setWinWidth(window.innerWidth);
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+
+  const fontScale = winWidth <= 480 ? 0.45 : winWidth <= 768 ? 0.6 : 1;
+
   const activeIdx = Math.max(0, ITEMS.findIndex(i => i.page === location.pathname));
   const [active, setActive] = useState(activeIdx);
   const isFirstRenderAudio = useRef(true);
@@ -286,6 +295,45 @@ export default function P5SideNav() {
           transition: opacity 0.12s ease;
         }
         .p5-row.active .p5-label-bright { opacity: 1; }
+
+        /* ===== MOBILE RESPONSIVE ===== */
+        @media (max-width: 768px) {
+          .p5-sidenav-trigger {
+            font-size: 22px !important;
+            top: 12px !important;
+            left: 12px !important;
+          }
+          .p5-sidenav-drawer {
+            width: 100vw;
+            min-width: unset;
+            padding: 30px 20px;
+          }
+          .p5-sidenav-drawer .p5-menu {
+            gap: 16px;
+          }
+          .p5-sidenav-drawer .p5-row {
+            margin-left: 0 !important;
+            margin-top: 5px !important;
+          }
+          .p5-sidenav-image-drawer {
+            display: none;
+          }
+          .p5-label-base {
+            -webkit-text-stroke: 5px rgba(0, 0, 0, 0.8) !important;
+          }
+          .p5-label-bright {
+            -webkit-text-stroke: 5px rgba(255, 255, 255, 0.9) !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .p5-sidenav-drawer {
+            padding: 20px 12px;
+          }
+          .p5-sidenav-drawer .p5-menu {
+            gap: 10px;
+          }
+        }
       `}</style>
 
       {/* Button to toggle navigation */}
@@ -310,8 +358,9 @@ export default function P5SideNav() {
             const isActive = active === i;
             const dist = Math.abs(i - active);
             const opacity = isActive ? 1 : Math.max(0.5, 1 - dist * 0.2);
-            const estW = item.label.length * item.fontSize * 0.8 + 200;
-            const estH = item.fontSize * 1.3;
+            const scaledFontSize = item.fontSize * fontScale;
+            const estW = item.label.length * scaledFontSize * 0.8 + 200 * fontScale;
+            const estH = scaledFontSize * 1.3;
             const clipFn = CLIP_SHAPES[i] ?? CLIP_SHAPES[0];
 
             return (
@@ -372,13 +421,13 @@ export default function P5SideNav() {
                     }}
                   />
                   <div className="p5-label-wrap" style={{ opacity }}>
-                    <span className="p5-label-base p5-label-dark" style={{ fontSize: item.fontSize }}>
+                    <span className="p5-label-base p5-label-dark" style={{ fontSize: scaledFontSize }}>
                       {item.label}
                     </span>
                     <span
                       className="p5-label-base p5-label-bright"
                       style={{
-                        fontSize: item.fontSize,
+                        fontSize: scaledFontSize,
                         clipPath: clipFn(estW, estH),
                       }}
                     >

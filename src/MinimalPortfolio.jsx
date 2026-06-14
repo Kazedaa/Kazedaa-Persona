@@ -302,6 +302,7 @@ export default function MinimalPortfolio({ onActivateP5 }) {
         .minimal-socials {
           display: flex;
           gap: 1.5rem;
+          flex-wrap: wrap;
         }
 
         .minimal-socials a {
@@ -442,6 +443,109 @@ export default function MinimalPortfolio({ onActivateP5 }) {
 
         .minimal-card a:hover {
           opacity: 0.6;
+        }
+
+        /* ===== MOBILE RESPONSIVE ===== */
+        @media (max-width: 768px) {
+          .minimal-container {
+            padding: 1.5rem 5%;
+          }
+          .fixed-theme-btn {
+            top: 15px;
+            left: 15px;
+            font-size: 0.75rem !important;
+            padding: 0.4rem 0.8rem;
+          }
+          .easter-egg-container {
+            top: 12px;
+            right: 12px;
+          }
+          .easter-egg-btn {
+            width: 80px;
+          }
+          .easter-egg-text {
+            font-size: 0.7rem;
+          }
+          .minimal-header {
+            margin-top: 5rem;
+            margin-bottom: 3rem;
+          }
+          .header-content-wrapper {
+            gap: 2rem;
+          }
+          .minimal-header h1 {
+            font-size: 2.5rem;
+            letter-spacing: -1px;
+          }
+          .minimal-header h2 {
+            font-size: 1.2rem;
+          }
+          .minimal-bio {
+            font-size: 1rem;
+          }
+          .minimal-socials {
+            flex-wrap: wrap;
+          }
+          .minimal-grid {
+            grid-template-columns: 1fr;
+          }
+          .minimal-scroll-card {
+            flex: 0 0 280px;
+          }
+          .minimal-section {
+            margin-bottom: 3rem;
+          }
+          .minimal-card {
+            padding: 1.5rem;
+          }
+          .minimal-card-image {
+            height: 160px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .minimal-container {
+            padding: 1rem 4%;
+          }
+          .minimal-header {
+            margin-top: 4.5rem;
+            margin-bottom: 2rem;
+          }
+          .header-image {
+            flex: 0 0 120px;
+            width: 120px;
+          }
+          .minimal-header h1 {
+            font-size: 2rem;
+          }
+          .minimal-header h2 {
+            font-size: 1rem;
+          }
+          .minimal-bio {
+            font-size: 0.9rem;
+          }
+          .minimal-socials {
+            gap: 1rem;
+          }
+          .minimal-socials a {
+            font-size: 0.8rem;
+          }
+          .minimal-scroll-card {
+            flex: 0 0 250px;
+          }
+          .minimal-list, .minimal-grid {
+            gap: 1.5rem;
+          }
+          .minimal-card {
+            padding: 1.2rem;
+          }
+          .minimal-card-image {
+            height: 140px;
+          }
+          .minimal-section h3 {
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+          }
         }
       `}</style>
     </div>
